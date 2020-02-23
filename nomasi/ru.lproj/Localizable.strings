@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  nomasi
+
+  Created by Alexander Krupichko on 19.01.2020.
+  Copyright © 2020 Krupichko. All rights reserved.
+*/
+"Authorization.Placeholder.email" = "Email";
+"Authorization.Placeholder.password" = "Пароль";
+"Authorization.Placeholder.confirmPassword" = "Подтверждение пароля";
+"Authorization.Auth.Title" = "Вход";
+"Authorization.Auth.Button.Title" = "Авторизоваться";
+"Authorization.RestorePassword.Button.Title" = "Восстановить пароль";
+"Authorization.Error.undefined" = "Неизвестная ошибка";
+"Authorization.Error.emptyFields" = "Необходимо ввести email и пароль";
+"Authorization.Error.emptyEmail" = "Необходимо ввести email";
+"Authorization.Error.registerCredentials" = "Необходимо ввести email, пароль и подтверждение пароля";
+"Authorization.Error.passwordConfirmation" = "Пароль и подтверждение пароля должны совпадать";
+
+"Authorization.ForgotPassword.Title" = "Восстановить пароль";
+"Authorization.ForgotPassword.Reset.Button.title" = "Сбросить пароль";
+"Authorization.ForgotPassword.Reset.Alert.Confirm.message" = "Вы уверены что хотите сбросить пароль?";
+"Authorization.ForgotPassword.Reset.Alert.Success.message" = "Для сброса пароля следуйте инструкции в письме.";
+
+"Authorization.Registration.Title" = "Регистрация";
+"Authorization.Registration.Button.Title" = "Зарегестрироваться";
+"Authorization.Registration.AuthButton.Title" = "Уже есть акканут";

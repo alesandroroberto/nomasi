@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  nomasi
+
+  Created by Alexander Krupichko on 19.01.2020.
+  Copyright © 2020 Krupichko. All rights reserved.
+*/
+"Authorization.Placeholder.email" = "Email";
+"Authorization.Placeholder.password" = "Password";
+"Authorization.Placeholder.confirmPassword" = "Confirm Password";
+"Authorization.Auth.Title" = "Authorization";
+"Authorization.Auth.Button.Title" = "Auth";
+"Authorization.RestorePassword.Button.Title" = "Restore Password";
+"Authorization.Error.undefined" = "Undefined error";
+"Authorization.Error.emptyFields" = "Empty email or password";
+"Authorization.Error.emptyEmail" = "Empty email";
+"Authorization.Error.registerCredentials" = "Empty email, password or password confirmation";
+"Authorization.Error.passwordConfirmation" = "Confirm password not equal to password";
+
+"Authorization.ForgotPassword.Title" = "Forgot password";
+"Authorization.ForgotPassword.Reset.Button.title" = "Reset password";
+"Authorization.ForgotPassword.Reset.Alert.Confirm.message" = "Are you sure, reset password?";
+"Authorization.ForgotPassword.Reset.Alert.Success.message" = "We send email, check email";
+
+"Authorization.Registration.Title" = "Registration";
+"Authorization.Registration.Button.Title" = "Register";
+"Authorization.Registration.AuthButton.Title" = "Go to authorization";
