@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,9 @@
 		CA55512623D496350068D9BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA55512423D496350068D9BE /* Localizable.strings */; };
 		CA55512B23D49D7E0068D9BE /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55512A23D49D7E0068D9BE /* strings.swift */; };
 		CA55512D23D49EF30068D9BE /* AuthorizationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55512C23D49EF30068D9BE /* AuthorizationEnvironment.swift */; };
+		CA782521243CD235003C862B /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA782520243CD235003C862B /* Effect.swift */; };
+		CAB86602243D0E7500D9EFF3 /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = CAB86601243D0E7500D9EFF3 /* CasePaths */; };
+		CAB86604243D0EB300D9EFF3 /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = CAB86603243D0EB300D9EFF3 /* CasePaths */; };
 		CAC1A29D23C9F48A00AF8392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */; };
 		CAC1A29F23C9F48A00AF8392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1A29E23C9F48A00AF8392 /* SceneDelegate.swift */; };
 		CAC1A2A123C9F48A00AF8392 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1A2A023C9F48A00AF8392 /* ContentView.swift */; };
@@ -127,6 +130,7 @@
 		CA55512823D496680068D9BE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA55512A23D49D7E0068D9BE /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
 		CA55512C23D49EF30068D9BE /* AuthorizationEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEnvironment.swift; sourceTree = "<group>"; };
+		CA782520243CD235003C862B /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		CAC1A29923C9F48A00AF8392 /* nomasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nomasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC1A29E23C9F48A00AF8392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CACA850723DDDA34004EB1E7 /* DesignKit.framework in Frameworks */,
+				CAB86602243D0E7500D9EFF3 /* CasePaths in Frameworks */,
 				CAD0F7E023CA004700782DE5 /* ComposableArchitecture.framework in Frameworks */,
 				A7C5C51444D917D8E6484E1C /* Pods_nomasi.framework in Frameworks */,
 			);
@@ -202,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB86604243D0EB300D9EFF3 /* CasePaths in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +324,7 @@
 			children = (
 				CAD0F7CD23CA004700782DE5 /* ComposableArchitecture.h */,
 				CAD0F7E923CA006600782DE5 /* ComposableArchitecture.swift */,
+				CA782520243CD235003C862B /* Effect.swift */,
 				CAD0F7CE23CA004700782DE5 /* Info.plist */,
 			);
 			path = ComposableArchitecture;
@@ -399,6 +406,9 @@
 				CACA850623DDDA34004EB1E7 /* PBXTargetDependency */,
 			);
 			name = nomasi;
+			packageProductDependencies = (
+				CAB86601243D0E7500D9EFF3 /* CasePaths */,
+			);
 			productName = nomasi;
 			productReference = CAC1A29923C9F48A00AF8392 /* nomasi.app */;
 			productType = "com.apple.product-type.application";
@@ -473,6 +483,9 @@
 			dependencies = (
 			);
 			name = ComposableArchitecture;
+			packageProductDependencies = (
+				CAB86603243D0EB300D9EFF3 /* CasePaths */,
+			);
 			productName = ComposableArchitecture;
 			productReference = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */;
 			productType = "com.apple.product-type.framework";
@@ -541,6 +554,9 @@
 				ru,
 			);
 			mainGroup = CAC1A29023C9F48A00AF8392;
+			packageReferences = (
+				CAB86600243D0E7500D9EFF3 /* XCRemoteSwiftPackageReference "swift-case-paths" */,
+			);
 			productRefGroup = CAC1A29A23C9F48A00AF8392 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -738,6 +754,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA782521243CD235003C862B /* Effect.swift in Sources */,
 				CAD0F7EA23CA006600782DE5 /* ComposableArchitecture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1283,6 +1300,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CAB86600243D0E7500D9EFF3 /* XCRemoteSwiftPackageReference "swift-case-paths" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-case-paths.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CAB86601243D0E7500D9EFF3 /* CasePaths */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAB86600243D0E7500D9EFF3 /* XCRemoteSwiftPackageReference "swift-case-paths" */;
+			productName = CasePaths;
+		};
+		CAB86603243D0EB300D9EFF3 /* CasePaths */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAB86600243D0E7500D9EFF3 /* XCRemoteSwiftPackageReference "swift-case-paths" */;
+			productName = CasePaths;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CAC1A29123C9F48A00AF8392 /* Project object */;
 }

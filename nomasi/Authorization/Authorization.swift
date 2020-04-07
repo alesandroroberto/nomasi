@@ -11,60 +11,52 @@ import ComposableArchitecture
 import DesignKit
 
 struct Authorization: View {
-    @ObservedObject var store: Store<AuthorizationState, AuthorizationAction>
+    let store: Store<AuthorizationState, AuthorizationAction>
+    @ObservedObject var viewStore: ViewStore<AuthorizationState, AuthorizationAction>
+    
+    public init(store: Store<AuthorizationState, AuthorizationAction>) {
+      self.store = store
+      self.viewStore = self.store.view(removeDuplicates: ==)
+    }
+    
     public var body: some View {
         ScrollView() {
             Spacer(minLength: .gridSteps(4))
             VStack() {
                 NOTextField(L10n.Authorization.Placeholder.email, text: email)
                     .keyboardType(.emailAddress)
-                    .disabled(self.store.value.loading)
+                    .disabled(self.viewStore.value.loading)
                 Divider()
                 NOSecureField(L10n.Authorization.Placeholder.password, text: password)
-                    .disabled(self.store.value.loading)
+                    .disabled(self.viewStore.value.loading)
             }
             .padding(.vertical, .gridSteps(2))
             .background(Color(.secondarySystemBackground))
             .cornerRadius(.gridSteps(4))
             Spacer(minLength: .gridSteps(20))
-            NOWideTextButton(L10n.Authorization.Auth.Button.title) { self.store.send(.authorizationTapped) }
-                .disabled(self.store.value.loading)
+            NOWideTextButton(L10n.Authorization.Auth.Button.title) { self.viewStore.send(.authorizationTapped) }
+                .disabled(self.viewStore.value.loading)
             Spacer(minLength: .gridSteps(4))
-            NOWideTextButton(L10n.Authorization.RestorePassword.Button.title) { self.store.send(.present(.forgotPassword)) }
-                .disabled(self.store.value.loading)
+            NOWideTextButton(L10n.Authorization.RestorePassword.Button.title) { self.viewStore.send(.present(.forgotPassword)) }
+                .disabled(self.viewStore.value.loading)
         }
         .navigationBarTitle(Text(L10n.Authorization.Auth.title), displayMode: .inline)
         .padding(.horizontal, .gridSteps(4))
-        .onDisappear() { self.store.send(.closed(.authorization)) }
-        .alert(item: .constant(self.store.value.alert)) { alert in
+        .onDisappear() { self.viewStore.send(.closed(.authorization)) }
+        .alert(item: .constant(self.viewStore.value.alert)) { alert in
             Alert(
                 title: Text(alert.style.message),
                 dismissButton: .default(Text("Ok")) {
-                    self.store.send(.alertDidHide)
+                    self.viewStore.send(.alertDidHide)
                 }
             )
         }
     }
-    
-    public init(store: Store<AuthorizationState, AuthorizationAction>) {
-        self.store = store
-    }
 }
 
 extension Authorization {
-    var email: Binding<String> { .init(get: { self.store.value.email ?? "" },
-                                       set: { self.store.send(.emailChanged($0)) }) }
-    var password: Binding<String> { .init(get: { self.store.value.password ?? "" },
-                                          set: { self.store.send(.passwordChanged($0)) }) }
-}
-
-struct Authorization_Previews: PreviewProvider {
-    static var previews: some View {
-        Authorization(store: .init(initialValue: .init(presented: .none,
-                                                       loading: false,
-                                                       email: "email@email.ru",
-                                                       password: "some pass",
-                                                       confirmPassword: "some pass"),
-                                   reducer: authorizationReducer))
-    }
+    var email: Binding<String> { .init(get: { self.viewStore.value.email ?? "" },
+                                       set: { self.viewStore.send(.emailChanged($0)) }) }
+    var password: Binding<String> { .init(get: { self.viewStore.value.password ?? "" },
+                                          set: { self.viewStore.send(.passwordChanged($0)) }) }
 }

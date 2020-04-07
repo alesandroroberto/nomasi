@@ -8,7 +8,7 @@
 
 import ComposableArchitecture
 
-struct AuthorizationState {
+struct AuthorizationState: Equatable {
     public var alert: Alert?
     public var presented: PresentedScreen
     public var loading: Bool
@@ -72,9 +72,13 @@ enum AuthorizationAction: Equatable {
     case closed(AuthorizationState.PresentedScreen)
 }
 
-var Current = AuthorizationEnvironment.live
+//var Current = AuthorizationEnvironment.live
 
-func authorizationReducer(state: inout AuthorizationState, action: AuthorizationAction) -> [Effect<AuthorizationAction>] {
+func authorizationReducer(
+    state: inout AuthorizationState,
+    action: AuthorizationAction,
+    environment: AuthorizationEnvironment
+) -> [Effect<AuthorizationAction>] {
     switch action {
     case .success:
         state.loading = false
@@ -88,21 +92,21 @@ func authorizationReducer(state: inout AuthorizationState, action: Authorization
         }
         return []
     case .authorizationTapped:
-        guard let email = state.email, let password = state.password else { return [Current.emptyCredentials()] }
+        guard let email = state.email, let password = state.password else { return [environment.emptyCredentials()] }
         state.loading = true
-        return [Current.authorization(email, password)]
+        return [environment.authorization(email, password)]
     case .registrarionTapped:
         guard let email = state.email, let password = state.password, state.confirmPassword != nil
-            else { return [Current.emptyRegisterCredentials()] }
+            else { return [environment.emptyRegisterCredentials()] }
         guard state.confirmPassword == password
-            else { return [Current.passwordConfirmationError()] }
+            else { return [environment.passwordConfirmationError()] }
         state.loading = true
-        return [Current.registration(email, password)]
+        return [environment.registration(email, password)]
     case .resetConfirm:
         state.alert = nil
-        guard let email = state.email else { return [Current.emptyEmail()] }
+        guard let email = state.email else { return [environment.emptyEmail()] }
         state.loading = true
-        return [Current.resetPassword(email)]
+        return [environment.resetPassword(email)]
     case .resetTapped(let message):
         state.alert = .init(style: .action(message, .resetConfirm))
         return []

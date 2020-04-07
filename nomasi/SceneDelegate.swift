@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 initialValue: .init(
                     authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil)
                 ),
-                reducer: appReducer
+                reducer: appReducer,
+                environment: .live
             )
         )
 
