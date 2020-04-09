@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21AFF177838A3528D2D8239C /* Pods_nomasiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B072C60BFA31C38F27F2DEC9 /* Pods_nomasiTests.framework */; };
 		A7C5C51444D917D8E6484E1C /* Pods_nomasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE83BA035403B4D059A166 /* Pods_nomasi.framework */; };
+		CA36798A243F185500906205 /* ApplePayAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA367989243F185500906205 /* ApplePayAuthRequest.swift */; };
 		CA55511823CB64730068D9BE /* AuthorizationEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55511723CB64730068D9BE /* AuthorizationEffects.swift */; };
 		CA55512623D496350068D9BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA55512423D496350068D9BE /* Localizable.strings */; };
 		CA55512B23D49D7E0068D9BE /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55512A23D49D7E0068D9BE /* strings.swift */; };
@@ -124,6 +125,8 @@
 		998F043736A9C6D59C081EF1 /* Pods-nomasi-Authorization.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nomasi-Authorization.release.xcconfig"; path = "Target Support Files/Pods-nomasi-Authorization/Pods-nomasi-Authorization.release.xcconfig"; sourceTree = "<group>"; };
 		9DB9EF7EBDDF1164D45F3D6B /* Pods-nomasiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nomasiTests.release.xcconfig"; path = "Target Support Files/Pods-nomasiTests/Pods-nomasiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B072C60BFA31C38F27F2DEC9 /* Pods_nomasiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nomasiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA367988243E402E00906205 /* nomasi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nomasi.entitlements; sourceTree = "<group>"; };
+		CA367989243F185500906205 /* ApplePayAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayAuthRequest.swift; sourceTree = "<group>"; };
 		CA55511723CB64730068D9BE /* AuthorizationEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEffects.swift; sourceTree = "<group>"; };
 		CA55512523D496350068D9BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA55512723D496680068D9BE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -263,6 +266,7 @@
 		CAC1A29B23C9F48A00AF8392 /* nomasi */ = {
 			isa = PBXGroup;
 			children = (
+				CA367988243E402E00906205 /* nomasi.entitlements */,
 				CAD0F81923CB624F00782DE5 /* Authorization */,
 				CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */,
 				CAC1A29E23C9F48A00AF8392 /* SceneDelegate.swift */,
@@ -348,6 +352,7 @@
 				CAD0F80F23CA027E00782DE5 /* Authorization.swift */,
 				CACA84E923DC91A2004EB1E7 /* ForgotPassword.swift */,
 				CACA84EB23DDB836004EB1E7 /* Registration.swift */,
+				CA367989243F185500906205 /* ApplePayAuthRequest.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -708,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA36798A243F185500906205 /* ApplePayAuthRequest.swift in Sources */,
 				CAC1A29D23C9F48A00AF8392 /* AppDelegate.swift in Sources */,
 				CAC1A29F23C9F48A00AF8392 /* SceneDelegate.swift in Sources */,
 				CAC1A2A123C9F48A00AF8392 /* ContentView.swift in Sources */,
@@ -951,6 +957,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nomasi/nomasi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nomasi/Preview Content\"";
 				DEVELOPMENT_TEAM = 3Q972XJGQC;
@@ -973,6 +980,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nomasi/nomasi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nomasi/Preview Content\"";
 				DEVELOPMENT_TEAM = 3Q972XJGQC;

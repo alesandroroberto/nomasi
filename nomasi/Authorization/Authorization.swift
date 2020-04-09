@@ -39,6 +39,9 @@ struct Authorization: View {
             Spacer(minLength: .gridSteps(4))
             NOWideTextButton(L10n.Authorization.RestorePassword.Button.title) { self.viewStore.send(.present(.forgotPassword)) }
                 .disabled(self.viewStore.value.loading)
+            Spacer(minLength: .gridSteps(4))
+            NOWideTextButton("Apple SignIn") { self.viewStore.send(.signInWithAppleTapped) }
+                .disabled(self.viewStore.value.loading)
         }
         .navigationBarTitle(Text(L10n.Authorization.Auth.title), displayMode: .inline)
         .padding(.horizontal, .gridSteps(4))

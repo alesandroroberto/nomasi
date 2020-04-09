@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -26,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil)
                 ),
                 reducer: appReducer,
-                environment: .live
+                environment: .live(startAppleSignIn: startAppleSignIn)
             )
         )
 
@@ -66,7 +67,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
+extension SceneDelegate {
+    private var startAppleSignIn: (@escaping ApplePayAuthResult) -> Void {
+        return { [weak self] result in
+            guard let self = self, let window = self.window else { result(nil); return }
+            var request: ApplePayAuthRequest? = ApplePayAuthRequest(window: window)
+            let retainResult: ApplePayAuthResult = {
+                result($0)
+                request = nil
+            }
+            request?.performRequest(result: retainResult)
+        }
+    }
+}

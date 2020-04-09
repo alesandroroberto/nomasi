@@ -21,16 +21,20 @@ struct AuthorizationEnvironment {
     var authorization: (Email, Password) -> Effect<AuthorizationAction>
     var resetPassword: (Email) -> Effect<AuthorizationAction>
     var registration: (Email, Password) -> Effect<AuthorizationAction>
+    var appleSignIn: () -> Effect<AuthorizationAction>
 }
 
 extension AuthorizationEnvironment {
-    static let live = AuthorizationEnvironment(
-        emptyCredentials: { AuthorizationEffects.emptyCredentials },
-        emptyEmail: { AuthorizationEffects.emptyEmail },
-        emptyRegisterCredentials: { AuthorizationEffects.emptyRegistrationCredentials },
-        passwordConfirmationError: { AuthorizationEffects.passwordConfirmationError },
-        authorization: AuthorizationEffects.authorize,
-        resetPassword: AuthorizationEffects.resetPassword,
-        registration: AuthorizationEffects.registraion
-    )
+    static func live(startAppleSignIn: @escaping (@escaping ApplePayAuthResult) -> Void) -> AuthorizationEnvironment {
+        AuthorizationEnvironment(
+            emptyCredentials: { AuthorizationEffects.emptyCredentials },
+            emptyEmail: { AuthorizationEffects.emptyEmail },
+            emptyRegisterCredentials: { AuthorizationEffects.emptyRegistrationCredentials },
+            passwordConfirmationError: { AuthorizationEffects.passwordConfirmationError },
+            authorization: AuthorizationEffects.authorize,
+            resetPassword: AuthorizationEffects.resetPassword,
+            registration: AuthorizationEffects.registraion,
+            appleSignIn: AuthorizationEffects.appleSignIn(start: startAppleSignIn)
+        )
+    }
 }

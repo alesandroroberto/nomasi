@@ -62,6 +62,7 @@ enum AuthorizationAction: Equatable {
     case emailChanged(String)
     case passwordChanged(String)
     case confirmPasswordChanged(String)
+    case signInWithAppleTapped
     case authorizationTapped
     case registrarionTapped
     case resetTapped(String)
@@ -91,6 +92,9 @@ func authorizationReducer(
             state.alert = .init(style: .info(message))
         }
         return []
+    case .signInWithAppleTapped:
+        state.loading = true
+        return [environment.appleSignIn()]
     case .authorizationTapped:
         guard let email = state.email, let password = state.password else { return [environment.emptyCredentials()] }
         state.loading = true
