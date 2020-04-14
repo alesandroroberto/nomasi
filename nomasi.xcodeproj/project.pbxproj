@@ -29,6 +29,10 @@
 		CA71094B2444A2A800274AD5 /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = CA71094A2444A2A800274AD5 /* Prelude */; };
 		CA71094E2444AC4D00274AD5 /* Overture in Frameworks */ = {isa = PBXBuildFile; productRef = CA71094D2444AC4D00274AD5 /* Overture */; };
 		CA7109512445E44800274AD5 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109502445E44800274AD5 /* FirebaseProvider.swift */; };
+		CA7109542445FB3100274AD5 /* ExercisesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109532445FB3100274AD5 /* ExercisesState.swift */; };
+		CA7109562445FCE400274AD5 /* ExercisesEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109552445FCE400274AD5 /* ExercisesEnvironment.swift */; };
+		CA7109582445FDAD00274AD5 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109572445FDAD00274AD5 /* Exercises.swift */; };
+		CA71095B2445FFA200274AD5 /* ExercisesEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71095A2445FFA200274AD5 /* ExercisesEffects.swift */; };
 		CA782521243CD235003C862B /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA782520243CD235003C862B /* Effect.swift */; };
 		CAB86602243D0E7500D9EFF3 /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = CAB86601243D0E7500D9EFF3 /* CasePaths */; };
 		CAB86604243D0EB300D9EFF3 /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = CAB86603243D0EB300D9EFF3 /* CasePaths */; };
@@ -199,6 +203,10 @@
 		CA71093F244476B100274AD5 /* ExerciseGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGroups.swift; sourceTree = "<group>"; };
 		CA71094724447F7D00274AD5 /* ExerciseGroupsEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGroupsEffects.swift; sourceTree = "<group>"; };
 		CA7109502445E44800274AD5 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
+		CA7109532445FB3100274AD5 /* ExercisesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesState.swift; sourceTree = "<group>"; };
+		CA7109552445FCE400274AD5 /* ExercisesEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesEnvironment.swift; sourceTree = "<group>"; };
+		CA7109572445FDAD00274AD5 /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
+		CA71095A2445FFA200274AD5 /* ExercisesEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesEffects.swift; sourceTree = "<group>"; };
 		CA782520243CD235003C862B /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		CAC1A29923C9F48A00AF8392 /* nomasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nomasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -324,6 +332,7 @@
 		CA7109192444716000274AD5 /* NOExercises */ = {
 			isa = PBXGroup;
 			children = (
+				CA7109522445FB1400274AD5 /* Exercise */,
 				CA71093A244471BF00274AD5 /* ExerciseGroups */,
 				CA71091A2444716000274AD5 /* NOExercises.h */,
 				CA71091B2444716000274AD5 /* Info.plist */,
@@ -366,6 +375,24 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		CA7109522445FB1400274AD5 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				CA7109552445FCE400274AD5 /* ExercisesEnvironment.swift */,
+				CA7109532445FB3100274AD5 /* ExercisesState.swift */,
+				CA7109572445FDAD00274AD5 /* Exercises.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		CA7109592445FF7500274AD5 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				CA71095A2445FFA200274AD5 /* ExercisesEffects.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
 		CAC1A29023C9F48A00AF8392 = {
 			isa = PBXGroup;
 			children = (
@@ -401,8 +428,9 @@
 		CAC1A29B23C9F48A00AF8392 /* nomasi */ = {
 			isa = PBXGroup;
 			children = (
-				CA71094F2445E42E00274AD5 /* Firebase */,
 				CA367988243E402E00906205 /* nomasi.entitlements */,
+				CA7109592445FF7500274AD5 /* Exercises */,
+				CA71094F2445E42E00274AD5 /* Firebase */,
 				CA71094624447F5100274AD5 /* ExerciseGroups */,
 				CAD0F81923CB624F00782DE5 /* Authorization */,
 				CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */,
@@ -930,8 +958,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA71093C244471D500274AD5 /* ExerciseGroupsState.swift in Sources */,
+				CA7109582445FDAD00274AD5 /* Exercises.swift in Sources */,
 				CA71093E2444751600274AD5 /* ExerciseGroupsEnvironment.swift in Sources */,
+				CA7109562445FCE400274AD5 /* ExercisesEnvironment.swift in Sources */,
 				CA710940244476B100274AD5 /* ExerciseGroups.swift in Sources */,
+				CA7109542445FB3100274AD5 /* ExercisesState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,6 +984,7 @@
 				CAC1A2A123C9F48A00AF8392 /* ContentView.swift in Sources */,
 				CAD0F81823CA2A4A00782DE5 /* Authorization.swift in Sources */,
 				CA7109512445E44800274AD5 /* FirebaseProvider.swift in Sources */,
+				CA71095B2445FFA200274AD5 /* ExercisesEffects.swift in Sources */,
 				CACA84E823DC86AF004EB1E7 /* AuthorizationState.swift in Sources */,
 				CA71094824447F7D00274AD5 /* ExerciseGroupsEffects.swift in Sources */,
 				CA55512B23D49D7E0068D9BE /* strings.swift in Sources */,

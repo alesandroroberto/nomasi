@@ -6,6 +6,7 @@
 //  Copyright © 2020 Krupichko. All rights reserved.
 //
 
+import ComposableArchitecture
 import UIKit
 import SwiftUI
 import FirebaseAuth
@@ -31,12 +32,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             store: .init(
                 initialValue: .init(
                     authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil),
-                    exerciseGroupsState: .initial
+                    exerciseGroupsState: .initial,
+                    exercisesState: .initial
                 ),
-                reducer: appReducer,
+                reducer: logging(appReducer),
                 environment: AppEnvironment(
                     authorizationEnvironment: .live(startAppleSignIn: startAppleSignIn),
-                    exerciseGroupsEnvironment: .live(provider: firebaseProvider)
+                    exerciseGroupsEnvironment: .live(provider: firebaseProvider),
+                    exercisesEnvironment: .live(provider: firebaseProvider)
                 )
             )
         )

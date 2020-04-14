@@ -15,11 +15,13 @@ import NOExercises
 struct AppState: Equatable {
     var authorizationState: AuthorizationState
     var exerciseGroupsState: ExerciseGroupsState
+    var exercisesState: ExercisesState
 }
 
 enum AppAction {
     case authorizationView(AuthorizationAction)
     case exerciseGroupsView(ExerciseGroupsAction)
+    case exercisesView(ExercisesAction)
     
     var authorizationView: AuthorizationAction? {
         get {
@@ -39,6 +41,16 @@ enum AppAction {
         set {
             guard case .exerciseGroupsView = self, let newValue = newValue else { return }
             self = .exerciseGroupsView(newValue)
+        }
+    }
+    var exercisesView: ExercisesAction? {
+        get {
+            guard case let .exercisesView(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard case .exercisesView = self, let newValue = newValue else { return }
+            self = .exercisesView(newValue)
         }
     }
 }
@@ -64,12 +76,26 @@ extension AppState {
     }
     var exerciseGroupsView: ExerciseGroupsState {
         get {
-            ExerciseGroupsState.init(groups: exerciseGroupsState.groups,
-                                     step: exerciseGroupsState.step)
+            ExerciseGroupsState(groups: exerciseGroupsState.groups,
+                                step: exerciseGroupsState.step,
+                                selected: exerciseGroupsState.selected)
         }
         set {
             self.exerciseGroupsState.groups = newValue.groups
             self.exerciseGroupsState.step = newValue.step
+            self.exerciseGroupsState.selected = newValue.selected
+        }
+    }
+    var exercisesView: ExercisesState {
+        get {
+            ExercisesState(group: exerciseGroupsState.selected,
+                           exercises: exercisesState.exercises,
+                           step: exercisesState.step)
+        }
+        set {
+            self.exerciseGroupsState.selected = newValue.group
+            self.exercisesState.exercises = newValue.exercises
+            self.exercisesState.step = newValue.step
         }
     }
 }
@@ -77,6 +103,7 @@ extension AppState {
 struct AppEnvironment {
     let authorizationEnvironment: AuthorizationEnvironment
     let exerciseGroupsEnvironment: ExerciseGroupsEnvironment
+    let exercisesEnvironment: ExercisesEnvironment
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = combine(
@@ -85,9 +112,13 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = combine(
              action: /AppAction.authorizationView,
              environment: { $0.authorizationEnvironment }),
     pullback(exerciseGroupsReducer,
-             value: \AppState.exerciseGroupsState,
+             value: \AppState.exerciseGroupsView,
              action: /AppAction.exerciseGroupsView,
-             environment: { $0.exerciseGroupsEnvironment })
+             environment: { $0.exerciseGroupsEnvironment }),
+    pullback(exercisesReducer,
+             value: \AppState.exercisesView,
+             action: /AppAction.exercisesView,
+             environment: { $0.exercisesEnvironment })
 )
 
 struct ContentView: View {
@@ -105,6 +136,10 @@ struct ContentView: View {
                 store: self.store.scope(
                     value: { $0.exerciseGroupsView },
                     action: { .exerciseGroupsView($0) }
+                ),
+                exercisesStore: self.store.scope(
+                    value: { $0.exercisesView },
+                    action: { .exercisesView($0) }
                 )
             ).tabItem {
                 Image(systemName: "2.square.fill")
