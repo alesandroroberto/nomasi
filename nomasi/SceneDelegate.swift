@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import FirebaseAuth
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,14 +21,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
+        let firebaseProvider = FirebaseProvider(
+            version: "eNt0L4n517BvYrRfE1VX",
+            firestore: Firestore.firestore(),
+            language: .init(locale: Locale.current.identifier)
+        )
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView(
             store: .init(
                 initialValue: .init(
-                    authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil)
+                    authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil),
+                    exerciseGroupsState: .initial
                 ),
                 reducer: appReducer,
-                environment: .live(startAppleSignIn: startAppleSignIn)
+                environment: AppEnvironment(
+                    authorizationEnvironment: .live(startAppleSignIn: startAppleSignIn),
+                    exerciseGroupsEnvironment: .live(provider: firebaseProvider)
+                )
             )
         )
 

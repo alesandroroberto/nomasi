@@ -73,8 +73,6 @@ enum AuthorizationAction: Equatable {
     case closed(AuthorizationState.PresentedScreen)
 }
 
-//var Current = AuthorizationEnvironment.live
-
 func authorizationReducer(
     state: inout AuthorizationState,
     action: AuthorizationAction,

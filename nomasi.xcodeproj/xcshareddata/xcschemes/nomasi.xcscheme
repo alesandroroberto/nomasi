@@ -68,6 +68,16 @@
                ReferencedContainer = "container:nomasi.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CA71091F2444716000274AD5"
+               BuildableName = "NOExercisesTests.xctest"
+               BlueprintName = "NOExercisesTests"
+               ReferencedContainer = "container:nomasi.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
