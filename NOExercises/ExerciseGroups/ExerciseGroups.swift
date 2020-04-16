@@ -12,33 +12,49 @@ import SwiftUI
 public struct ExerciseGroups: View {
     let store: Store<ExerciseGroupsState, ExerciseGroupsAction>
     let exercisesStore: Store<ExercisesState, ExercisesAction>
+    let exerciseDetails: Store<ExerciseDetailsState, ExerciseDetailsAction>
     @ObservedObject var viewStore: ViewStore<ExerciseGroupsState, ExerciseGroupsAction>
     
     public var body: some View {
         NavigationView() {
             List() {
                 ForEach(viewStore.value.groups, id: \.id) { group in
-                    NavigationLink(
-                        destination: Exercises(store: self.exercisesStore),
-                        tag: group.id,
-                        selection: .constant(self.viewStore.value.selected?.id),
-                        label: {
-                            Text("\(group.name)")
-                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                .background(Color(.red))
-                                .onTapGesture() { self.viewStore.send(.groupSelected(id: group.id)) }
+//                    NavigationLink(
+//                        destination: Exercises(store: self.exercisesStore, exerciseDetails: self.exerciseDetails),
+//                        tag: group.id,
+//                        selection: .constant(self.viewStore.value.selected?.id),
+//                        label: {
+//                            Text("\(group.name)")
+//                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+//                                .background(Color(.systemBackground))
+//                                .onTapGesture() {
+//                                    self.viewStore.send(.groupSelected(id: group.id))
+//                            }
+//                    }
+//                    )
+                    Text("\(group.name)")
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .background(Color(.systemBackground))
+                        .onTapGesture() {
+                            self.viewStore.send(.groupSelected(id: group.id))
                     }
-                    )
                 }
+                NavigationLink(destination: Exercises(store: self.exercisesStore, exerciseDetails: self.exerciseDetails),
+                               isActive: .constant(self.viewStore.value.selected?.id != nil),
+                               label: { EmptyView() })
             }
+            .onAppear(perform: { self.viewStore.send(.viewDidLoad); print("ExerciseGroups appear") })
+            .onDisappear(perform: { self.viewStore.send(.disappeared); print("ExerciseGroups Disappear") })
             .navigationBarTitle("Группы")
-        }.onAppear(perform: { self.viewStore.send(.viewDidLoad) })
+        }
     }
     
     public init(store: Store<ExerciseGroupsState, ExerciseGroupsAction>,
-                exercisesStore: Store<ExercisesState, ExercisesAction>) {
+                exercisesStore: Store<ExercisesState, ExercisesAction>,
+                exerciseDetails: Store<ExerciseDetailsState, ExerciseDetailsAction>) {
         self.store = store
         self.exercisesStore = exercisesStore
+        self.exerciseDetails = exerciseDetails
         self.viewStore = self.store.view(removeDuplicates: ==)
     }
 }
@@ -58,6 +74,10 @@ struct ExerciseGroups_Previews: PreviewProvider {
                 environment: ExercisesEnvironment(
                     loadExercises: { _ in Effect.sync(work: { .exercisesLoaded([]) }) }
                 )
+            ), exerciseDetails: .init(
+                initialValue: .initial,
+                reducer: exerciseDetailsReducer,
+                environment: ExerciseDetailsEnvironment()
             )
         )
     }

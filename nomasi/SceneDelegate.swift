@@ -11,6 +11,7 @@ import UIKit
 import SwiftUI
 import FirebaseAuth
 import Firebase
+import NOExercises
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -33,13 +34,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 initialValue: .init(
                     authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil),
                     exerciseGroupsState: .initial,
-                    exercisesState: .initial
+                    exercisesState: .initial,
+                    navigation: .initial
                 ),
-                reducer: logging(appReducer),
+                reducer: navigationCoordinator(appReducer),
+//                reducer: appReducer,
                 environment: AppEnvironment(
                     authorizationEnvironment: .live(startAppleSignIn: startAppleSignIn),
                     exerciseGroupsEnvironment: .live(provider: firebaseProvider),
-                    exercisesEnvironment: .live(provider: firebaseProvider)
+                    exercisesEnvironment: .live(provider: firebaseProvider),
+                    exerciseDetailsEnvironment: ExerciseDetailsEnvironment()
                 )
             )
         )
