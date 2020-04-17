@@ -24,6 +24,7 @@ public enum ExerciseDetailsAction {
     case viewDidLoad
     case disappeared
     case lastViewInStack
+    case selectExercise(exerciseId: String)
 }
 
 public func exerciseDetailsReducer(
@@ -37,6 +38,8 @@ public func exerciseDetailsReducer(
     case .disappeared:
         return []
     case .lastViewInStack:
+        return []
+    case .selectExercise:
         return []
     }
 }

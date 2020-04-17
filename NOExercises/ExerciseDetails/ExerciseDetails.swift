@@ -11,6 +11,8 @@ import DesignKit
 import SwiftUI
 
 public struct ExerciseDetails: View {
+    let exerciseId: String
+    let title: String
     let store: Store<ExerciseDetailsState, ExerciseDetailsAction>
     @ObservedObject var viewStore: ViewStore<ExerciseDetailsState, ExerciseDetailsAction>
     public var body: some View {
@@ -37,12 +39,14 @@ public struct ExerciseDetails: View {
             .cornerRadius(.gridSteps(4))
             .padding(.horizontal, .gridSteps(4))
         }
-        .navigationBarTitle(viewStore.value.exercise?.name ?? "")
-        .onAppear(perform: { self.viewStore.send(.viewDidLoad); print("ExerciseDetails appear") })
+        .navigationBarTitle(title)
+        .onAppear(perform: { self.viewStore.send(.selectExercise(exerciseId: self.exerciseId)); print("ExerciseDetails appear") })
         .onDisappear(perform: { self.viewStore.send(.disappeared); print("ExerciseDetails Disappear") })
     }
     
-    public init(store: Store<ExerciseDetailsState, ExerciseDetailsAction>) {
+    public init(exerciseId: String, title: String, store: Store<ExerciseDetailsState, ExerciseDetailsAction>) {
+        self.exerciseId = exerciseId
+        self.title = title
         self.store = store
         self.viewStore = self.store.view(removeDuplicates: ==)
     }
@@ -50,10 +54,12 @@ public struct ExerciseDetails: View {
 
 struct ExerciseDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseDetails(store: .init(
-            initialValue: .initial,
-            reducer: exerciseDetailsReducer,
-            environment: ExerciseDetailsEnvironment()
+        ExerciseDetails(exerciseId: "exerciseId",
+                        title: "Bench press",
+                        store: .init(
+                            initialValue: .initial,
+                            reducer: exerciseDetailsReducer,
+                            environment: ExerciseDetailsEnvironment()
             )
         )
     }

@@ -30,13 +30,16 @@ public struct ExercisesState: Equatable {
     public var group: ExerciseGroup?
     public var exercises: [Exercise]
     public var step: ExercisesStep
-    public var selected: Exercise?
+    public var exerciseDetailsState: ExerciseDetailsState
 
-    public init(group: ExerciseGroup?, exercises: [Exercise], step: ExercisesStep, selected: Exercise? = nil) {
+    public init(group: ExerciseGroup?,
+                exercises: [Exercise],
+                step: ExercisesStep,
+                exerciseDetailsState: ExerciseDetailsState = .initial) {
         self.group = group
         self.exercises = exercises
         self.step = step
-        self.selected = selected
+        self.exerciseDetailsState = exerciseDetailsState
     }
 }
 
@@ -45,11 +48,12 @@ extension ExercisesState {
 }
 
 public enum ExercisesAction {
-    case viewDidLoad
+    case loadExercises
     case disappeared
     case exercisesLoaded([Exercise])
     case exerciseSelected(id: String)
     case lastViewInStack
+    case selectGroup(groupsId: String)
 }
 
 public func exercisesReducer(
@@ -58,7 +62,7 @@ public func exercisesReducer(
     environment: ExercisesEnvironment
 ) -> [Effect<ExercisesAction>] {
     switch action {
-    case .viewDidLoad:
+    case .loadExercises:
         guard let groupId = state.group?.id else { return [] }
         state.exercises = []
         state.step = .loading
@@ -68,12 +72,14 @@ public func exercisesReducer(
         state.exercises = exercises
         return []
     case .exerciseSelected(let id):
-        state.selected = state.exercises.first(where: { $0.id == id })
+        state.exerciseDetailsState.exercise = state.exercises.first(where: { $0.id == id })
         return []
     case .disappeared:
         return []
     case .lastViewInStack:
-        state.selected = nil
+        state.exerciseDetailsState.exercise = nil
+        return []
+    case .selectGroup:
         return []
     }
 }

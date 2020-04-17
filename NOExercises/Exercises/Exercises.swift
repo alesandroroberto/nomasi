@@ -10,60 +10,58 @@ import ComposableArchitecture
 import SwiftUI
 
 public struct Exercises: View {
-    let store: Store<ExercisesState, ExercisesAction>
-    let exerciseDetails: Store<ExerciseDetailsState, ExerciseDetailsAction>
+    let groupId: String
+    let title: String
+    let store: Store<ExercisesWithDetalsState, ExercisesWithDetalsAction>
     @ObservedObject var viewStore: ViewStore<ExercisesState, ExercisesAction>
     public var body: some View {
         List() {
             ForEach(viewStore.value.exercises, id: \.id) { exercise in
-//                NavigationLink(
-//                    destination: ExerciseDetails(store: self.exerciseDetails),
-//                    tag: exercise.id,
-//                    selection: .constant(self.viewStore.value.selected?.id),
-//                    label: {
-//                        Text("\(exercise.name)")
-//                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-//                            .background(Color(.systemBackground))
-//                            .onTapGesture() { self.viewStore.send(.exerciseSelected(id: exercise.id)) }
-//                }
-//                )
-                Text("\(exercise.name)")
-                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                    .background(Color(.systemBackground))
-                    .onTapGesture() { self.viewStore.send(.exerciseSelected(id: exercise.id)) }
+                NavigationLink(
+                    "\(exercise.name)",
+                    destination: ExerciseDetails(
+                        exerciseId: exercise.id,
+                        title: exercise.name,
+                        store: self.store.scope(
+                            value: { $0.exerciseDetailsView },
+                            action: { .exerciseDetailsView($0) }
+                        )
+                    )
+                )
             }
-            NavigationLink(destination: ExerciseDetails(store: self.exerciseDetails),
-                           isActive: .constant(self.viewStore.value.selected?.id != nil),
-                           label: { EmptyView() })
         }
-        .navigationBarTitle(viewStore.value.group?.name ?? "")
-        .onAppear(perform: { self.viewStore.send(.viewDidLoad); print("Exercises appear") })
+        .navigationBarTitle(title)
+        .onAppear(perform: { self.viewStore.send(.selectGroup(groupsId: self.groupId)); print("Exercises appear") })
         .onDisappear(perform: { self.viewStore.send(.disappeared); print("Exercises Disappear") })
     }
     
-    public init(store: Store<ExercisesState, ExercisesAction>,
-                exerciseDetails: Store<ExerciseDetailsState, ExerciseDetailsAction>) {
+    public init(groupId: String, title: String, store: Store<ExercisesWithDetalsState, ExercisesWithDetalsAction>) {
+        self.groupId = groupId
+        self.title = title
         self.store = store
-        self.exerciseDetails = exerciseDetails
-        self.viewStore = self.store.view(removeDuplicates: ==)
+        self.viewStore = store
+            .scope(
+                value: { $0.exercisesState },
+                action: { .exercisesView($0) }
+        )
+            .view(removeDuplicates: ==)
     }
 }
 
 struct Exercises_Previews: PreviewProvider {
     static var previews: some View {
-        Exercises(store: .init(
-            initialValue: .initial,
-            reducer: exercisesReducer,
-            environment: ExercisesEnvironment(
-                loadExercises: { _ in Effect.sync(work: { .exercisesLoaded(exercises) }) }
+        Exercises(groupId: "groupId",
+                  title: "Chest",
+                  store: .init(
+                    initialValue: ExercisesWithDetalsState(exercisesState: .initial),
+                    reducer: { _, _, _ in [] },
+                    environment: ExercisesWithDetalsEnvironment(
+                        exercisesEnvironment: .init(loadExercises: { _ in Effect.sync(work: { .exercisesLoaded(exercises)}) }),
+                        exerciseDetailsEnvironment: .init())
             )
-            ), exerciseDetails: .init(
-                initialValue: .initial,
-                reducer: exerciseDetailsReducer,
-                environment: ExerciseDetailsEnvironment()
-            ))
+        )
     }
-    
+
     private static let exercises: [Exercise] = [
         .init(id: "Жим лёжа", name: "Жим лёжа", description: "Жим лёжа"),
         .init(id: "Жим гантелей", name: "Жим гантелей", description: "Жим гантелей"),

@@ -14,68 +14,12 @@ import NOExercises
 
 struct AppState: Equatable {
     var authorizationState: AuthorizationState
-    var exerciseGroupsState: ExerciseGroupsState
-    var exercisesState: ExercisesState
-    var navigation: NavigationState
+    var exercisesGroupsWithExercisesState: ExercisesGroupsWithExercisesState
 }
 
 enum AppAction {
     case authorizationView(AuthorizationAction)
-    case exerciseGroupsView(ExerciseGroupsAction)
-    case exercisesView(ExercisesAction)
-    case exerciseDetailsView(ExerciseDetailsAction)
-    case navigationView(NavigationAction)
-    
-    var authorizationView: AuthorizationAction? {
-        get {
-            guard case let .authorizationView(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .authorizationView = self, let newValue = newValue else { return }
-            self = .authorizationView(newValue)
-        }
-    }
-    var exerciseGroupsView: ExerciseGroupsAction? {
-        get {
-            guard case let .exerciseGroupsView(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .exerciseGroupsView = self, let newValue = newValue else { return }
-            self = .exerciseGroupsView(newValue)
-        }
-    }
-    var exercisesView: ExercisesAction? {
-        get {
-            guard case let .exercisesView(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .exercisesView = self, let newValue = newValue else { return }
-            self = .exercisesView(newValue)
-        }
-    }
-    var exerciseDetailsView: ExerciseDetailsAction? {
-        get {
-            guard case let .exerciseDetailsView(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .exerciseDetailsView = self, let newValue = newValue else { return }
-            self = .exerciseDetailsView(newValue)
-        }
-    }
-    var navigationView: NavigationAction? {
-        get {
-            guard case let .navigationView(value) = self else { return nil }
-            return value
-        }
-        set {
-            guard case .navigationView = self, let newValue = newValue else { return }
-            self = .navigationView(newValue)
-        }
-    }
+    case exercisesGroupsWithExercisesView(ExercisesGroupsWithExercisesAction)
 }
 
 extension AppState {
@@ -97,47 +41,11 @@ extension AppState {
             self.authorizationState.confirmPassword = newValue.confirmPassword
         }
     }
-    var exerciseGroupsView: ExerciseGroupsState {
-        get {
-            ExerciseGroupsState(groups: exerciseGroupsState.groups,
-                                step: exerciseGroupsState.step,
-                                selected: exerciseGroupsState.selected)
-        }
-        set {
-            self.exerciseGroupsState.groups = newValue.groups
-            self.exerciseGroupsState.step = newValue.step
-            self.exerciseGroupsState.selected = newValue.selected
-        }
-    }
-    var exercisesView: ExercisesState {
-        get {
-            ExercisesState(group: exerciseGroupsState.selected,
-                           exercises: exercisesState.exercises,
-                           step: exercisesState.step,
-                           selected: exercisesState.selected)
-        }
-        set {
-            self.exerciseGroupsState.selected = newValue.group
-            self.exercisesState.exercises = newValue.exercises
-            self.exercisesState.step = newValue.step
-            self.exercisesState.selected = newValue.selected
-        }
-    }
-    var exerciseDetailsView: ExerciseDetailsState {
-        get {
-            ExerciseDetailsState(exercise: exercisesState.selected)
-        }
-        set {
-            self.exercisesState.selected = newValue.exercise
-        }
-    }
 }
 
 struct AppEnvironment {
     let authorizationEnvironment: AuthorizationEnvironment
-    let exerciseGroupsEnvironment: ExerciseGroupsEnvironment
-    let exercisesEnvironment: ExercisesEnvironment
-    let exerciseDetailsEnvironment: ExerciseDetailsEnvironment
+    let exercisesGroupsWithExercisesEnvironment: ExercisesGroupsWithExercisesEnvironment
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = combine(
@@ -145,22 +53,10 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = combine(
              value: \AppState.authorizationState,
              action: /AppAction.authorizationView,
              environment: { $0.authorizationEnvironment }),
-    pullback(exerciseGroupsReducer,
-             value: \AppState.exerciseGroupsView,
-             action: /AppAction.exerciseGroupsView,
-             environment: { $0.exerciseGroupsEnvironment }),
-    pullback(exercisesReducer,
-             value: \AppState.exercisesView,
-             action: /AppAction.exercisesView,
-             environment: { $0.exercisesEnvironment }),
-    pullback(exerciseDetailsReducer,
-             value: \AppState.exerciseDetailsView,
-             action: /AppAction.exerciseDetailsView,
-             environment: { $0.exerciseDetailsEnvironment }),
-    pullback(navigationReducer,
-             value: \AppState.navigation,
-             action: /AppAction.navigationView,
-             environment: { _ in () })
+    pullback(groupsWithExercisesReducer(groupsReducer),
+             value: \AppState.exercisesGroupsWithExercisesState,
+             action: /AppAction.exercisesGroupsWithExercisesView,
+             environment: { $0.exercisesGroupsWithExercisesEnvironment })
 )
 
 struct ContentView: View {
@@ -174,19 +70,9 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            ExerciseGroups(
-                store: self.store.scope(
-                    value: { $0.exerciseGroupsView },
-                    action: { .exerciseGroupsView($0) }
-                ),
-                exercisesStore: self.store.scope(
-                    value: { $0.exercisesView },
-                    action: { .exercisesView($0) }
-                ),
-                exerciseDetails: self.store.scope(
-                    value: { $0.exerciseDetailsView },
-                    action: { .exerciseDetailsView($0) }
-                )
+            ExerciseGroups(store: self.store.scope(
+                value: { $0.exercisesGroupsWithExercisesState },
+                action: { .exercisesGroupsWithExercisesView($0) })
             ).tabItem {
                 Image(systemName: "2.square.fill")
                 Text("First")

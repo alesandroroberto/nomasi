@@ -33,17 +33,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             store: .init(
                 initialValue: .init(
                     authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil),
-                    exerciseGroupsState: .initial,
-                    exercisesState: .initial,
-                    navigation: .initial
+                    exercisesGroupsWithExercisesState: .initial
                 ),
-                reducer: navigationCoordinator(appReducer),
-//                reducer: appReducer,
+//                reducer: navigationCoordinator(appReducer),
+                reducer: appReducer,
                 environment: AppEnvironment(
                     authorizationEnvironment: .live(startAppleSignIn: startAppleSignIn),
-                    exerciseGroupsEnvironment: .live(provider: firebaseProvider),
-                    exercisesEnvironment: .live(provider: firebaseProvider),
-                    exerciseDetailsEnvironment: ExerciseDetailsEnvironment()
+                    exercisesGroupsWithExercisesEnvironment: .init(
+                        exerciseGroupsEnvironment: .live(provider: firebaseProvider),
+                        exercisesWithDetalsEnvironment: .init(
+                            exercisesEnvironment: .live(provider: firebaseProvider),
+                            exerciseDetailsEnvironment: .init()))
                 )
             )
         )
@@ -90,7 +90,7 @@ extension SceneDelegate {
     private var startAppleSignIn: (@escaping ApplePayAuthResult) -> Void {
         return { [weak self] result in
             guard let self = self, let window = self.window else { result(nil); return }
-            var request: ApplePayAuthRequest? = ApplePayAuthRequest(window: window)
+            var request: AppleSginInRequest? = AppleSginInRequest(window: window)
             let retainResult: ApplePayAuthResult = {
                 result($0)
                 request = nil

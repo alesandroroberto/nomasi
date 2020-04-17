@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		21AFF177838A3528D2D8239C /* Pods_nomasiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B072C60BFA31C38F27F2DEC9 /* Pods_nomasiTests.framework */; };
 		A7C5C51444D917D8E6484E1C /* Pods_nomasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE83BA035403B4D059A166 /* Pods_nomasi.framework */; };
-		CA36798A243F185500906205 /* ApplePayAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA367989243F185500906205 /* ApplePayAuthRequest.swift */; };
+		CA2CDF77244A2117007DE285 /* ExercisesWithDetals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CDF76244A2117007DE285 /* ExercisesWithDetals.swift */; };
+		CA2CDF79244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CDF78244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift */; };
+		CA36798A243F185500906205 /* AppleSginInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA367989243F185500906205 /* AppleSginInRequest.swift */; };
 		CA55511823CB64730068D9BE /* AuthorizationEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55511723CB64730068D9BE /* AuthorizationEffects.swift */; };
 		CA55512623D496350068D9BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA55512423D496350068D9BE /* Localizable.strings */; };
 		CA55512B23D49D7E0068D9BE /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55512A23D49D7E0068D9BE /* strings.swift */; };
@@ -22,7 +24,6 @@
 		CA71093C244471D500274AD5 /* ExerciseGroupsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71093B244471D500274AD5 /* ExerciseGroupsState.swift */; };
 		CA71093E2444751600274AD5 /* ExerciseGroupsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71093D2444751600274AD5 /* ExerciseGroupsEnvironment.swift */; };
 		CA710940244476B100274AD5 /* ExerciseGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71093F244476B100274AD5 /* ExerciseGroups.swift */; };
-		CA7109422444786D00274AD5 /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = CA7109412444786D00274AD5 /* CasePaths */; };
 		CA710943244478DF00274AD5 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */; };
 		CA710944244478DF00274AD5 /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA71094824447F7D00274AD5 /* ExerciseGroupsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71094724447F7D00274AD5 /* ExerciseGroupsEffects.swift */; };
@@ -41,7 +42,6 @@
 		CA7109682447655000274AD5 /* DesignKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACA84F223DDDA34004EB1E7 /* DesignKit.framework */; };
 		CA7109692447655000274AD5 /* DesignKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CACA84F223DDDA34004EB1E7 /* DesignKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA782521243CD235003C862B /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA782520243CD235003C862B /* Effect.swift */; };
-		CAB86602243D0E7500D9EFF3 /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = CAB86601243D0E7500D9EFF3 /* CasePaths */; };
 		CAB86604243D0EB300D9EFF3 /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = CAB86603243D0EB300D9EFF3 /* CasePaths */; };
 		CAC1A29D23C9F48A00AF8392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */; };
 		CAC1A29F23C9F48A00AF8392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1A29E23C9F48A00AF8392 /* SceneDelegate.swift */; };
@@ -199,8 +199,10 @@
 		998F043736A9C6D59C081EF1 /* Pods-nomasi-Authorization.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nomasi-Authorization.release.xcconfig"; path = "Target Support Files/Pods-nomasi-Authorization/Pods-nomasi-Authorization.release.xcconfig"; sourceTree = "<group>"; };
 		9DB9EF7EBDDF1164D45F3D6B /* Pods-nomasiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nomasiTests.release.xcconfig"; path = "Target Support Files/Pods-nomasiTests/Pods-nomasiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B072C60BFA31C38F27F2DEC9 /* Pods_nomasiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nomasiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA2CDF76244A2117007DE285 /* ExercisesWithDetals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesWithDetals.swift; sourceTree = "<group>"; };
+		CA2CDF78244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesGroupsWithExercisesState.swift; sourceTree = "<group>"; };
 		CA367988243E402E00906205 /* nomasi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nomasi.entitlements; sourceTree = "<group>"; };
-		CA367989243F185500906205 /* ApplePayAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayAuthRequest.swift; sourceTree = "<group>"; };
+		CA367989243F185500906205 /* AppleSginInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSginInRequest.swift; sourceTree = "<group>"; };
 		CA55511723CB64730068D9BE /* AuthorizationEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEffects.swift; sourceTree = "<group>"; };
 		CA55512523D496350068D9BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA55512723D496680068D9BE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -272,7 +274,6 @@
 			files = (
 				CA7109682447655000274AD5 /* DesignKit.framework in Frameworks */,
 				CA710943244478DF00274AD5 /* ComposableArchitecture.framework in Frameworks */,
-				CA7109422444786D00274AD5 /* CasePaths in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +291,6 @@
 			files = (
 				CA71094B2444A2A800274AD5 /* Prelude in Frameworks */,
 				CACA850723DDDA34004EB1E7 /* DesignKit.framework in Frameworks */,
-				CAB86602243D0E7500D9EFF3 /* CasePaths in Frameworks */,
 				CAD0F7E023CA004700782DE5 /* ComposableArchitecture.framework in Frameworks */,
 				CA71094E2444AC4D00274AD5 /* Overture in Frameworks */,
 				A7C5C51444D917D8E6484E1C /* Pods_nomasi.framework in Frameworks */,
@@ -377,6 +377,7 @@
 				CA71093D2444751600274AD5 /* ExerciseGroupsEnvironment.swift */,
 				CA71093B244471D500274AD5 /* ExerciseGroupsState.swift */,
 				CA71093F244476B100274AD5 /* ExerciseGroups.swift */,
+				CA2CDF78244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift */,
 			);
 			path = ExerciseGroups;
 			sourceTree = "<group>";
@@ -403,6 +404,7 @@
 				CA7109552445FCE400274AD5 /* ExercisesEnvironment.swift */,
 				CA7109532445FB3100274AD5 /* ExercisesState.swift */,
 				CA7109572445FDAD00274AD5 /* Exercises.swift */,
+				CA2CDF76244A2117007DE285 /* ExercisesWithDetals.swift */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -559,7 +561,7 @@
 				CAD0F80F23CA027E00782DE5 /* Authorization.swift */,
 				CACA84E923DC91A2004EB1E7 /* ForgotPassword.swift */,
 				CACA84EB23DDB836004EB1E7 /* Registration.swift */,
-				CA367989243F185500906205 /* ApplePayAuthRequest.swift */,
+				CA367989243F185500906205 /* AppleSginInRequest.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -625,7 +627,6 @@
 			);
 			name = NOExercises;
 			packageProductDependencies = (
-				CA7109412444786D00274AD5 /* CasePaths */,
 			);
 			productName = NOExercises;
 			productReference = CA7109182444716000274AD5 /* NOExercises.framework */;
@@ -671,7 +672,6 @@
 			);
 			name = nomasi;
 			packageProductDependencies = (
-				CAB86601243D0E7500D9EFF3 /* CasePaths */,
 				CA71094A2444A2A800274AD5 /* Prelude */,
 				CA71094D2444AC4D00274AD5 /* Overture */,
 			);
@@ -1006,6 +1006,8 @@
 				CA7109582445FDAD00274AD5 /* Exercises.swift in Sources */,
 				CA71093E2444751600274AD5 /* ExerciseGroupsEnvironment.swift in Sources */,
 				CA7109652447632600274AD5 /* ExerciseDetailsEnvironment.swift in Sources */,
+				CA2CDF79244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift in Sources */,
+				CA2CDF77244A2117007DE285 /* ExercisesWithDetals.swift in Sources */,
 				CA7109562445FCE400274AD5 /* ExercisesEnvironment.swift in Sources */,
 				CA710940244476B100274AD5 /* ExerciseGroups.swift in Sources */,
 				CA7109542445FB3100274AD5 /* ExercisesState.swift in Sources */,
@@ -1024,7 +1026,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA36798A243F185500906205 /* ApplePayAuthRequest.swift in Sources */,
+				CA36798A243F185500906205 /* AppleSginInRequest.swift in Sources */,
 				CAC1A29D23C9F48A00AF8392 /* AppDelegate.swift in Sources */,
 				CAC1A29F23C9F48A00AF8392 /* SceneDelegate.swift in Sources */,
 				CAC1A2A123C9F48A00AF8392 /* ContentView.swift in Sources */,
@@ -1797,11 +1799,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CA7109412444786D00274AD5 /* CasePaths */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAB86600243D0E7500D9EFF3 /* XCRemoteSwiftPackageReference "swift-case-paths" */;
-			productName = CasePaths;
-		};
 		CA71094A2444A2A800274AD5 /* Prelude */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CA7109492444A2A800274AD5 /* XCRemoteSwiftPackageReference "swift-prelude" */;
@@ -1811,11 +1808,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CA71094C2444AC4D00274AD5 /* XCRemoteSwiftPackageReference "swift-overture" */;
 			productName = Overture;
-		};
-		CAB86601243D0E7500D9EFF3 /* CasePaths */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAB86600243D0E7500D9EFF3 /* XCRemoteSwiftPackageReference "swift-case-paths" */;
-			productName = CasePaths;
 		};
 		CAB86603243D0EB300D9EFF3 /* CasePaths */ = {
 			isa = XCSwiftPackageProductDependency;

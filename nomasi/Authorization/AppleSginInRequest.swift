@@ -11,7 +11,7 @@ import AuthenticationServices
 typealias ApplePayAuthResult = (ASAuthorization?) -> Void
 typealias Nonce = String
 
-class ApplePayAuthRequest: NSObject {
+class AppleSginInRequest: NSObject {
     private let window: UIWindow
     private var result: ApplePayAuthResult?
     
@@ -33,7 +33,7 @@ class ApplePayAuthRequest: NSObject {
     }
 }
 
-extension ApplePayAuthRequest: ASAuthorizationControllerDelegate {
+extension AppleSginInRequest: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController,
                                  didCompleteWithAuthorization authorization: ASAuthorization) {
         self.result?(authorization)
@@ -47,7 +47,7 @@ extension ApplePayAuthRequest: ASAuthorizationControllerDelegate {
     }
 }
 
-extension ApplePayAuthRequest: ASAuthorizationControllerPresentationContextProviding {
+extension AppleSginInRequest: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.window
     }

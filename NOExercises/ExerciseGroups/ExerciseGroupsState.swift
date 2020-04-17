@@ -27,14 +27,14 @@ public enum ExerciseGroupsStep {
 public struct ExerciseGroupsState: Equatable {
     public var groups: [ExerciseGroup]
     public var step: ExerciseGroupsStep
-    public var selected: ExerciseGroup?
+    public var exercisesState: ExercisesState
     
     public init(groups: [ExerciseGroup],
                 step: ExerciseGroupsStep,
-                selected: ExerciseGroup? = nil) {
+                exercisesState: ExercisesState = .initial) {
         self.groups = groups
         self.step = step
-        self.selected = selected
+        self.exercisesState = exercisesState
     }
 }
 
@@ -47,6 +47,7 @@ public enum ExerciseGroupsAction {
     case disappeared
     case groupsLoaded([ExerciseGroup])
     case groupSelected(id: String)
+    case loadExercises
     case lastViewInStack
 }
 
@@ -65,12 +66,15 @@ public func exerciseGroupsReducer(
         state.groups = groups
         return []
     case .groupSelected(let id):
-        state.selected = state.groups.first(where: { $0.id == id })
-        return []
+        guard state.exercisesState.group?.id != id else { return [] }
+        state.exercisesState.group = state.groups.first(where: { $0.id == id })
+        return [.sync(work: { .loadExercises })]
     case .disappeared:
         return []
     case .lastViewInStack:
-        state.selected = nil
+        state.exercisesState.group = nil
+        return []
+    case .loadExercises:
         return []
     }
 }
