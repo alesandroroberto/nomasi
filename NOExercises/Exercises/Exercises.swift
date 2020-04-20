@@ -7,6 +7,8 @@
 //
 
 import ComposableArchitecture
+import Overture
+import Prelude
 import SwiftUI
 
 public struct Exercises: View {
@@ -31,8 +33,8 @@ public struct Exercises: View {
             }
         }
         .navigationBarTitle(title)
-        .onAppear(perform: { self.viewStore.send(.selectGroup(groupsId: self.groupId)); print("Exercises appear") })
-        .onDisappear(perform: { self.viewStore.send(.disappeared); print("Exercises Disappear") })
+        .onAppear(perform: { self.viewStore.send(.selectGroup(groupsId: self.groupId)) })
+        .onDisappear(perform: { self.viewStore.send(.disappeared) })
     }
     
     public init(groupId: String, title: String, store: Store<ExercisesWithDetalsState, ExercisesWithDetalsAction>) {
@@ -50,11 +52,14 @@ public struct Exercises: View {
 
 struct Exercises_Previews: PreviewProvider {
     static var previews: some View {
-        Exercises(groupId: "groupId",
+        let state = ExercisesWithDetalsState(exercisesState: .initial)
+            |> set(\.exercisesState.exercises, exercises)
+        
+        return Exercises(groupId: "groupId",
                   title: "Chest",
                   store: .init(
-                    initialValue: ExercisesWithDetalsState(exercisesState: .initial),
-                    reducer: { _, _, _ in [] },
+                    initialValue: state,
+                    reducer: exercisesDetailsReducer,
                     environment: ExercisesWithDetalsEnvironment(
                         exercisesEnvironment: .init(loadExercises: { _ in Effect.sync(work: { .exercisesLoaded(exercises)}) }),
                         exerciseDetailsEnvironment: .init())

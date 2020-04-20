@@ -8,6 +8,8 @@
 
 import ComposableArchitecture
 import DesignKit
+import Overture
+import Prelude
 import SwiftUI
 
 public struct ExerciseDetails: View {
@@ -19,7 +21,7 @@ public struct ExerciseDetails: View {
         ScrollView() {
             Spacer(minLength: .gridSteps(4))
             VStack() {
-                Text(self.viewStore.value.exercise?.name ?? "Exercise")
+                Text(self.viewStore.value.exercise?.name ?? "")
                     .font(.title)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, .gridSteps(4))
@@ -30,7 +32,7 @@ public struct ExerciseDetails: View {
             .padding(.horizontal, .gridSteps(4))
             Spacer(minLength: .gridSteps(4))
             VStack() {
-                Text(self.viewStore.value.exercise?.description ?? "Description")
+                Text(self.viewStore.value.exercise?.description ?? "")
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, .gridSteps(4))
                     .padding(.vertical, .gridSteps(2))
@@ -40,8 +42,8 @@ public struct ExerciseDetails: View {
             .padding(.horizontal, .gridSteps(4))
         }
         .navigationBarTitle(title)
-        .onAppear(perform: { self.viewStore.send(.selectExercise(exerciseId: self.exerciseId)); print("ExerciseDetails appear") })
-        .onDisappear(perform: { self.viewStore.send(.disappeared); print("ExerciseDetails Disappear") })
+        .onAppear(perform: { self.viewStore.send(.selectExercise(exerciseId: self.exerciseId)) })
+        .onDisappear(perform: { self.viewStore.send(.disappeared) })
     }
     
     public init(exerciseId: String, title: String, store: Store<ExerciseDetailsState, ExerciseDetailsAction>) {
@@ -57,7 +59,10 @@ struct ExerciseDetails_Previews: PreviewProvider {
         ExerciseDetails(exerciseId: "exerciseId",
                         title: "Bench press",
                         store: .init(
-                            initialValue: .initial,
+                            initialValue: .initial |> set(\.exercise, .init(
+                                id: "Жим лежа",
+                                name: "Жим лежа",
+                                description: "Жим лежа на скамье")),
                             reducer: exerciseDetailsReducer,
                             environment: ExerciseDetailsEnvironment()
             )

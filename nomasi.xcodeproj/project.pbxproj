@@ -11,7 +11,25 @@
 		A7C5C51444D917D8E6484E1C /* Pods_nomasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE83BA035403B4D059A166 /* Pods_nomasi.framework */; };
 		CA2CDF77244A2117007DE285 /* ExercisesWithDetals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CDF76244A2117007DE285 /* ExercisesWithDetals.swift */; };
 		CA2CDF79244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CDF78244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift */; };
+		CA2CDF83244B0718007DE285 /* NOWorkout.h in Headers */ = {isa = PBXBuildFile; fileRef = CA2CDF81244B0718007DE285 /* NOWorkout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA2CDF86244B0718007DE285 /* NOWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2CDF7F244B0718007DE285 /* NOWorkout.framework */; };
+		CA2CDF87244B0718007DE285 /* NOWorkout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA2CDF7F244B0718007DE285 /* NOWorkout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA36798A243F185500906205 /* AppleSginInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA367989243F185500906205 /* AppleSginInRequest.swift */; };
+		CA550821244C77D10036259D /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */; };
+		CA550822244C77D10036259D /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA550828244C7E4E0036259D /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = CA550827244C7E4E0036259D /* Prelude */; };
+		CA55082A244C7EC60036259D /* Overture in Frameworks */ = {isa = PBXBuildFile; productRef = CA550829244C7EC60036259D /* Overture */; };
+		CA55082D244C81630036259D /* WorkoutsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55082C244C81630036259D /* WorkoutsEnvironment.swift */; };
+		CA55082F244C81A90036259D /* WorkoutsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55082E244C81A90036259D /* WorkoutsState.swift */; };
+		CA550833244C833D0036259D /* Workouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA550832244C833D0036259D /* Workouts.swift */; };
+		CA550836244C866C0036259D /* WorkoutsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA550835244C866C0036259D /* WorkoutsEffects.swift */; };
+		CA550839244C8B9D0036259D /* WorkoutEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA550838244C8B9D0036259D /* WorkoutEnvironment.swift */; };
+		CA55083B244C8D0E0036259D /* WorkoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55083A244C8D0E0036259D /* WorkoutState.swift */; };
+		CA55083D244C93130036259D /* WorkoutScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55083C244C93130036259D /* WorkoutScene.swift */; };
+		CA55083E244C96720036259D /* DesignKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACA84F223DDDA34004EB1E7 /* DesignKit.framework */; platformFilter = ios; };
+		CA55083F244C96720036259D /* DesignKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CACA84F223DDDA34004EB1E7 /* DesignKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA550843244C9C560036259D /* WorkoutsWithDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA550842244C9C560036259D /* WorkoutsWithDetails.swift */; };
+		CA550845244CAA0F0036259D /* WorkoutEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA550844244CAA0F0036259D /* WorkoutEffects.swift */; };
 		CA55511823CB64730068D9BE /* AuthorizationEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55511723CB64730068D9BE /* AuthorizationEffects.swift */; };
 		CA55512623D496350068D9BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA55512423D496350068D9BE /* Localizable.strings */; };
 		CA55512B23D49D7E0068D9BE /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA55512A23D49D7E0068D9BE /* strings.swift */; };
@@ -27,8 +45,6 @@
 		CA710943244478DF00274AD5 /* ComposableArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */; };
 		CA710944244478DF00274AD5 /* ComposableArchitecture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA71094824447F7D00274AD5 /* ExerciseGroupsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71094724447F7D00274AD5 /* ExerciseGroupsEffects.swift */; };
-		CA71094B2444A2A800274AD5 /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = CA71094A2444A2A800274AD5 /* Prelude */; };
-		CA71094E2444AC4D00274AD5 /* Overture in Frameworks */ = {isa = PBXBuildFile; productRef = CA71094D2444AC4D00274AD5 /* Overture */; };
 		CA7109512445E44800274AD5 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109502445E44800274AD5 /* FirebaseProvider.swift */; };
 		CA7109542445FB3100274AD5 /* ExercisesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109532445FB3100274AD5 /* ExercisesState.swift */; };
 		CA7109562445FCE400274AD5 /* ExercisesEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109552445FCE400274AD5 /* ExercisesEnvironment.swift */; };
@@ -75,6 +91,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CA2CDF84244B0718007DE285 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAC1A29123C9F48A00AF8392 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA2CDF7E244B0718007DE285;
+			remoteInfo = NOWorkout;
+		};
+		CA550823244C77D20036259D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAC1A29123C9F48A00AF8392 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAD0F7CA23CA004700782DE5;
+			remoteInfo = ComposableArchitecture;
+		};
+		CA550840244C96720036259D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAC1A29123C9F48A00AF8392 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CACA84F123DDDA34004EB1E7;
+			remoteInfo = DesignKit;
+		};
 		CA7109222444716000274AD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAC1A29123C9F48A00AF8392 /* Project object */;
@@ -162,6 +199,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CA550825244C77D20036259D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA550822244C77D10036259D /* ComposableArchitecture.framework in Embed Frameworks */,
+				CA55083F244C96720036259D /* DesignKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA710945244478DF00274AD5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +232,7 @@
 				CA71092E2444716100274AD5 /* NOExercises.framework in Embed Frameworks */,
 				CAD0F7E123CA004700782DE5 /* ComposableArchitecture.framework in Embed Frameworks */,
 				CACA850823DDDA34004EB1E7 /* DesignKit.framework in Embed Frameworks */,
+				CA2CDF87244B0718007DE285 /* NOWorkout.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,8 +251,20 @@
 		B072C60BFA31C38F27F2DEC9 /* Pods_nomasiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nomasiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA2CDF76244A2117007DE285 /* ExercisesWithDetals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesWithDetals.swift; sourceTree = "<group>"; };
 		CA2CDF78244A2154007DE285 /* ExercisesGroupsWithExercisesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesGroupsWithExercisesState.swift; sourceTree = "<group>"; };
+		CA2CDF7F244B0718007DE285 /* NOWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NOWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA2CDF81244B0718007DE285 /* NOWorkout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NOWorkout.h; sourceTree = "<group>"; };
+		CA2CDF82244B0718007DE285 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA367988243E402E00906205 /* nomasi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nomasi.entitlements; sourceTree = "<group>"; };
 		CA367989243F185500906205 /* AppleSginInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSginInRequest.swift; sourceTree = "<group>"; };
+		CA55082C244C81630036259D /* WorkoutsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsEnvironment.swift; sourceTree = "<group>"; };
+		CA55082E244C81A90036259D /* WorkoutsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsState.swift; sourceTree = "<group>"; };
+		CA550832244C833D0036259D /* Workouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workouts.swift; sourceTree = "<group>"; };
+		CA550835244C866C0036259D /* WorkoutsEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsEffects.swift; sourceTree = "<group>"; };
+		CA550838244C8B9D0036259D /* WorkoutEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEnvironment.swift; sourceTree = "<group>"; };
+		CA55083A244C8D0E0036259D /* WorkoutState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutState.swift; sourceTree = "<group>"; };
+		CA55083C244C93130036259D /* WorkoutScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScene.swift; sourceTree = "<group>"; };
+		CA550842244C9C560036259D /* WorkoutsWithDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsWithDetails.swift; sourceTree = "<group>"; };
+		CA550844244CAA0F0036259D /* WorkoutEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEffects.swift; sourceTree = "<group>"; };
 		CA55511723CB64730068D9BE /* AuthorizationEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEffects.swift; sourceTree = "<group>"; };
 		CA55512523D496350068D9BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA55512723D496680068D9BE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -268,6 +330,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CA2CDF7C244B0718007DE285 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA550821244C77D10036259D /* ComposableArchitecture.framework in Frameworks */,
+				CA55083E244C96720036259D /* DesignKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA7109152444716000274AD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,10 +360,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA71094B2444A2A800274AD5 /* Prelude in Frameworks */,
+				CA2CDF86244B0718007DE285 /* NOWorkout.framework in Frameworks */,
 				CACA850723DDDA34004EB1E7 /* DesignKit.framework in Frameworks */,
 				CAD0F7E023CA004700782DE5 /* ComposableArchitecture.framework in Frameworks */,
-				CA71094E2444AC4D00274AD5 /* Overture in Frameworks */,
 				A7C5C51444D917D8E6484E1C /* Pods_nomasi.framework in Frameworks */,
 				CA71092D2444716100274AD5 /* NOExercises.framework in Frameworks */,
 			);
@@ -325,7 +395,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA550828244C7E4E0036259D /* Prelude in Frameworks */,
 				CAB86604243D0EB300D9EFF3 /* CasePaths in Frameworks */,
+				CA55082A244C7EC60036259D /* Overture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +420,47 @@
 				64B585ACB9D2B5B659E8CC4A /* Pods_nomasi_Authorization.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA2CDF80244B0718007DE285 /* NOWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				CA550837244C8B7B0036259D /* Worlout */,
+				CA55082B244C813E0036259D /* Workouts */,
+				CA2CDF81244B0718007DE285 /* NOWorkout.h */,
+				CA2CDF82244B0718007DE285 /* Info.plist */,
+			);
+			path = NOWorkout;
+			sourceTree = "<group>";
+		};
+		CA55082B244C813E0036259D /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				CA55082C244C81630036259D /* WorkoutsEnvironment.swift */,
+				CA55082E244C81A90036259D /* WorkoutsState.swift */,
+				CA550832244C833D0036259D /* Workouts.swift */,
+				CA550842244C9C560036259D /* WorkoutsWithDetails.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
+		CA550834244C86520036259D /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				CA550835244C866C0036259D /* WorkoutsEffects.swift */,
+				CA550844244CAA0F0036259D /* WorkoutEffects.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
+		CA550837244C8B7B0036259D /* Worlout */ = {
+			isa = PBXGroup;
+			children = (
+				CA550838244C8B9D0036259D /* WorkoutEnvironment.swift */,
+				CA55083A244C8D0E0036259D /* WorkoutState.swift */,
+				CA55083C244C93130036259D /* WorkoutScene.swift */,
+			);
+			path = Worlout;
 			sourceTree = "<group>";
 		};
 		CA7109192444716000274AD5 /* NOExercises */ = {
@@ -447,6 +560,7 @@
 				CACA850023DDDA34004EB1E7 /* DesignKitTests */,
 				CA7109192444716000274AD5 /* NOExercises */,
 				CA7109262444716000274AD5 /* NOExercisesTests */,
+				CA2CDF80244B0718007DE285 /* NOWorkout */,
 				CAC1A29A23C9F48A00AF8392 /* Products */,
 				F0202D272312739A426D3C43 /* Pods */,
 				A74D9B17C4CF6014FB3C9C81 /* Frameworks */,
@@ -464,6 +578,7 @@
 				CACA84FA23DDDA34004EB1E7 /* DesignKitTests.xctest */,
 				CA7109182444716000274AD5 /* NOExercises.framework */,
 				CA7109202444716000274AD5 /* NOExercisesTests.xctest */,
+				CA2CDF7F244B0718007DE285 /* NOWorkout.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -475,6 +590,7 @@
 				CA71094F2445E42E00274AD5 /* Firebase */,
 				CA7109592445FF7500274AD5 /* Exercises */,
 				CA71094624447F5100274AD5 /* ExerciseGroups */,
+				CA550834244C86520036259D /* Workouts */,
 				CAD0F81923CB624F00782DE5 /* Authorization */,
 				CA71095C2447271000274AD5 /* Navigation */,
 				CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */,
@@ -582,6 +698,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		CA2CDF7A244B0718007DE285 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA2CDF83244B0718007DE285 /* NOWorkout.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA7109132444716000274AD5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,6 +733,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CA2CDF7E244B0718007DE285 /* NOWorkout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA2CDF88244B0718007DE285 /* Build configuration list for PBXNativeTarget "NOWorkout" */;
+			buildPhases = (
+				CA2CDF7A244B0718007DE285 /* Headers */,
+				CA2CDF7B244B0718007DE285 /* Sources */,
+				CA2CDF7C244B0718007DE285 /* Frameworks */,
+				CA2CDF7D244B0718007DE285 /* Resources */,
+				CA550825244C77D20036259D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA550824244C77D20036259D /* PBXTargetDependency */,
+				CA550841244C96720036259D /* PBXTargetDependency */,
+			);
+			name = NOWorkout;
+			productName = NOWorkout;
+			productReference = CA2CDF7F244B0718007DE285 /* NOWorkout.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		CA7109172444716000274AD5 /* NOExercises */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA7109332444716100274AD5 /* Build configuration list for PBXNativeTarget "NOExercises" */;
@@ -669,11 +814,10 @@
 				CAD0F7DF23CA004700782DE5 /* PBXTargetDependency */,
 				CACA850623DDDA34004EB1E7 /* PBXTargetDependency */,
 				CA71092C2444716100274AD5 /* PBXTargetDependency */,
+				CA2CDF85244B0718007DE285 /* PBXTargetDependency */,
 			);
 			name = nomasi;
 			packageProductDependencies = (
-				CA71094A2444A2A800274AD5 /* Prelude */,
-				CA71094D2444AC4D00274AD5 /* Overture */,
 			);
 			productName = nomasi;
 			productReference = CAC1A29923C9F48A00AF8392 /* nomasi.app */;
@@ -751,6 +895,8 @@
 			name = ComposableArchitecture;
 			packageProductDependencies = (
 				CAB86603243D0EB300D9EFF3 /* CasePaths */,
+				CA550827244C7E4E0036259D /* Prelude */,
+				CA550829244C7EC60036259D /* Overture */,
 			);
 			productName = ComposableArchitecture;
 			productReference = CAD0F7CB23CA004700782DE5 /* ComposableArchitecture.framework */;
@@ -785,6 +931,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Krupichko;
 				TargetAttributes = {
+					CA2CDF7E244B0718007DE285 = {
+						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
+					};
 					CA7109172444716000274AD5 = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
@@ -830,8 +980,8 @@
 			mainGroup = CAC1A29023C9F48A00AF8392;
 			packageReferences = (
 				CAB86600243D0E7500D9EFF3 /* XCRemoteSwiftPackageReference "swift-case-paths" */,
-				CA7109492444A2A800274AD5 /* XCRemoteSwiftPackageReference "swift-prelude" */,
 				CA71094C2444AC4D00274AD5 /* XCRemoteSwiftPackageReference "swift-overture" */,
+				CA550826244C7E4E0036259D /* XCRemoteSwiftPackageReference "swift-prelude" */,
 			);
 			productRefGroup = CAC1A29A23C9F48A00AF8392 /* Products */;
 			projectDirPath = "";
@@ -845,11 +995,19 @@
 				CACA84F923DDDA34004EB1E7 /* DesignKitTests */,
 				CA7109172444716000274AD5 /* NOExercises */,
 				CA71091F2444716000274AD5 /* NOExercisesTests */,
+				CA2CDF7E244B0718007DE285 /* NOWorkout */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CA2CDF7D244B0718007DE285 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA7109162444716000274AD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -996,6 +1154,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CA2CDF7B244B0718007DE285 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA55082D244C81630036259D /* WorkoutsEnvironment.swift in Sources */,
+				CA55082F244C81A90036259D /* WorkoutsState.swift in Sources */,
+				CA55083D244C93130036259D /* WorkoutScene.swift in Sources */,
+				CA550843244C9C560036259D /* WorkoutsWithDetails.swift in Sources */,
+				CA550833244C833D0036259D /* Workouts.swift in Sources */,
+				CA55083B244C8D0E0036259D /* WorkoutState.swift in Sources */,
+				CA550839244C8B9D0036259D /* WorkoutEnvironment.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA7109142444716000274AD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1026,6 +1198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA550836244C866C0036259D /* WorkoutsEffects.swift in Sources */,
 				CA36798A243F185500906205 /* AppleSginInRequest.swift in Sources */,
 				CAC1A29D23C9F48A00AF8392 /* AppDelegate.swift in Sources */,
 				CAC1A29F23C9F48A00AF8392 /* SceneDelegate.swift in Sources */,
@@ -1035,6 +1208,7 @@
 				CA7109512445E44800274AD5 /* FirebaseProvider.swift in Sources */,
 				CA71095B2445FFA200274AD5 /* ExercisesEffects.swift in Sources */,
 				CACA84E823DC86AF004EB1E7 /* AuthorizationState.swift in Sources */,
+				CA550845244CAA0F0036259D /* WorkoutEffects.swift in Sources */,
 				CA71094824447F7D00274AD5 /* ExerciseGroupsEffects.swift in Sources */,
 				CA71096024475C1300274AD5 /* NavigationCoordinator.swift in Sources */,
 				CA55512B23D49D7E0068D9BE /* strings.swift in Sources */,
@@ -1094,6 +1268,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CA2CDF85244B0718007DE285 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA2CDF7E244B0718007DE285 /* NOWorkout */;
+			targetProxy = CA2CDF84244B0718007DE285 /* PBXContainerItemProxy */;
+		};
+		CA550824244C77D20036259D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAD0F7CA23CA004700782DE5 /* ComposableArchitecture */;
+			targetProxy = CA550823244C77D20036259D /* PBXContainerItemProxy */;
+		};
+		CA550841244C96720036259D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CACA84F123DDDA34004EB1E7 /* DesignKit */;
+			targetProxy = CA550840244C96720036259D /* PBXContainerItemProxy */;
+		};
 		CA7109232444716000274AD5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CA7109172444716000274AD5 /* NOExercises */;
@@ -1178,6 +1368,65 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CA2CDF89244B0718007DE285 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3Q972XJGQC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NOWorkout/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krupichko.NOWorkout;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA2CDF8A244B0718007DE285 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3Q972XJGQC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NOWorkout/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krupichko.NOWorkout;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		CA71092F2444716100274AD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1191,6 +1440,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NOExercises/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1220,6 +1470,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NOExercises/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1403,6 +1654,7 @@
 				DEVELOPMENT_TEAM = 3Q972XJGQC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nomasi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1426,6 +1678,7 @@
 				DEVELOPMENT_TEAM = 3Q972XJGQC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nomasi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1497,6 +1750,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DesignKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1528,6 +1782,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DesignKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1598,6 +1853,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ComposableArchitecture/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1629,6 +1885,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ComposableArchitecture/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1688,6 +1945,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CA2CDF88244B0718007DE285 /* Build configuration list for PBXNativeTarget "NOWorkout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA2CDF89244B0718007DE285 /* Debug */,
+				CA2CDF8A244B0718007DE285 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CA7109332444716100274AD5 /* Build configuration list for PBXNativeTarget "NOExercises" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1772,7 +2038,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CA7109492444A2A800274AD5 /* XCRemoteSwiftPackageReference "swift-prelude" */ = {
+		CA550826244C7E4E0036259D /* XCRemoteSwiftPackageReference "swift-prelude" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-prelude.git";
 			requirement = {
@@ -1799,12 +2065,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CA71094A2444A2A800274AD5 /* Prelude */ = {
+		CA550827244C7E4E0036259D /* Prelude */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CA7109492444A2A800274AD5 /* XCRemoteSwiftPackageReference "swift-prelude" */;
+			package = CA550826244C7E4E0036259D /* XCRemoteSwiftPackageReference "swift-prelude" */;
 			productName = Prelude;
 		};
-		CA71094D2444AC4D00274AD5 /* Overture */ = {
+		CA550829244C7EC60036259D /* Overture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CA71094C2444AC4D00274AD5 /* XCRemoteSwiftPackageReference "swift-overture" */;
 			productName = Overture;

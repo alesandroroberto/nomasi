@@ -16,3 +16,7 @@ public struct ExerciseGroupsEnvironment {
         self.loadGroups = loadGroups
     }
 }
+
+extension ExerciseGroupsEnvironment {
+    static let mock = ExerciseGroupsEnvironment(loadGroups: { .sync(work: { .groupsLoaded([]) }) })
+}

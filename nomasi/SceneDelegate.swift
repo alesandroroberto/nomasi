@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let firebaseProvider = FirebaseProvider(
             version: "eNt0L4n517BvYrRfE1VX",
             firestore: Firestore.firestore(),
+            auth: Auth.auth(),
             language: .init(locale: Locale.current.identifier)
         )
         // Create the SwiftUI view that provides the window contents.
@@ -33,7 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             store: .init(
                 initialValue: .init(
                     authorizationState: .init(presented: .none, loading: false, email: nil, password: nil, confirmPassword: nil),
-                    exercisesGroupsWithExercisesState: .initial
+                    exercisesGroupsWithExercisesState: .initial,
+                    workoutsWithDetailsState: .initial
                 ),
 //                reducer: navigationCoordinator(appReducer),
                 reducer: appReducer,
@@ -43,7 +45,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         exerciseGroupsEnvironment: .live(provider: firebaseProvider),
                         exercisesWithDetalsEnvironment: .init(
                             exercisesEnvironment: .live(provider: firebaseProvider),
-                            exerciseDetailsEnvironment: .init()))
+                            exerciseDetailsEnvironment: .init())),
+                    workoutsWithDetailsEnvironment: .init(
+                        workoutsEnvironment: .live(provider: firebaseProvider),
+                        workoutEnvironment: .live(provider: firebaseProvider)
+                    )
                 )
             )
         )

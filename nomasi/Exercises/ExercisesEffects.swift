@@ -8,7 +8,6 @@
 
 import ComposableArchitecture
 import Combine
-import Firebase
 import NOExercises
 import Overture
 import Prelude

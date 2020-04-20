@@ -17,3 +17,7 @@ public struct ExercisesEnvironment {
         self.loadExercises = loadExercises
     }
 }
+
+extension ExercisesEnvironment {
+    static let mock = ExercisesEnvironment(loadExercises: { _ in .sync(work: { .exercisesLoaded([]) }) })
+}

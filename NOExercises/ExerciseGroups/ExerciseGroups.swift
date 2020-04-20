@@ -7,6 +7,8 @@
 //
 
 import ComposableArchitecture
+import Overture
+import Prelude
 import SwiftUI
 
 public struct ExerciseGroups: View {
@@ -29,8 +31,8 @@ public struct ExerciseGroups: View {
                     )
                 }
             }
-            .onAppear(perform: { self.viewStore.send(.viewDidLoad); print("ExerciseGroups appear") })
-            .onDisappear(perform: { self.viewStore.send(.disappeared); print("ExerciseGroups Disappear") })
+            .onAppear(perform: { self.viewStore.send(.viewDidLoad) })
+            .onDisappear(perform: { self.viewStore.send(.disappeared) })
             .navigationBarTitle("Группы")
         }
     }
@@ -44,33 +46,27 @@ public struct ExerciseGroups: View {
     }
 }
 
-//struct ExerciseGroups_Previews: PreviewProvider {
-//    static var previews: some View {
-//        return ExerciseGroups(
-//            store: .init(
-//                initialValue: .initial,
-//                reducer: exerciseGroupsReducer,
-//                environment: ExerciseGroupsEnvironment(
-//                    loadGroups: { Effect.sync(work: { .groupsLoaded(groups) }) }
-//                )
-//            ), exercisesStore: .init(
-//                initialValue: .initial,
-//                reducer: exercisesReducer,
-//                environment: ExercisesEnvironment(
-//                    loadExercises: { _ in Effect.sync(work: { .exercisesLoaded([]) }) }
-//                )
-//            ), exerciseDetails: .init(
-//                initialValue: .initial,
-//                reducer: exerciseDetailsReducer,
-//                environment: ExerciseDetailsEnvironment()
-//            )
-//        )
-//    }
-//
-//    private static let groups: [ExerciseGroup] = [
-//        .init(id: "Грудь", name: "Грудь"),
-//        .init(id: "Руки", name: "Руки"),
-//        .init(id: "Ноги", name: "Ноги"),
-//        .init(id: "Спина", name: "Спина")
-//    ]
-//}
+struct ExerciseGroups_Previews: PreviewProvider {
+    static var previews: some View {
+        return ExerciseGroups(
+            store: .init(
+                initialValue: .initial |> set(\.exerciseGroupsState.groups, groups),
+                reducer: groupsReducer,
+                environment: .init(
+                    exerciseGroupsEnvironment: .mock,
+                    exercisesWithDetalsEnvironment: .init(
+                        exercisesEnvironment: .mock,
+                        exerciseDetailsEnvironment: .init()
+                    )
+                )
+            )
+        )
+    }
+
+    private static let groups: [ExerciseGroup] = [
+        .init(id: "Грудь", name: "Грудь"),
+        .init(id: "Руки", name: "Руки"),
+        .init(id: "Ноги", name: "Ноги"),
+        .init(id: "Спина", name: "Спина")
+    ]
+}

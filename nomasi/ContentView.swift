@@ -11,15 +11,18 @@ import ComposableArchitecture
 import SwiftUI
 import DesignKit
 import NOExercises
+import NOWorkout
 
 struct AppState: Equatable {
     var authorizationState: AuthorizationState
     var exercisesGroupsWithExercisesState: ExercisesGroupsWithExercisesState
+    var workoutsWithDetailsState: WorkoutsWithDetailsState
 }
 
 enum AppAction {
     case authorizationView(AuthorizationAction)
     case exercisesGroupsWithExercisesView(ExercisesGroupsWithExercisesAction)
+    case workoutsWithDetailsView(WorkoutsWithDetailsAction)
 }
 
 extension AppState {
@@ -46,6 +49,7 @@ extension AppState {
 struct AppEnvironment {
     let authorizationEnvironment: AuthorizationEnvironment
     let exercisesGroupsWithExercisesEnvironment: ExercisesGroupsWithExercisesEnvironment
+    let workoutsWithDetailsEnvironment: WorkoutsWithDetailsEnvironment
 }
 
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = combine(
@@ -56,7 +60,11 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = combine(
     pullback(groupsWithExercisesReducer(groupsReducer),
              value: \AppState.exercisesGroupsWithExercisesState,
              action: /AppAction.exercisesGroupsWithExercisesView,
-             environment: { $0.exercisesGroupsWithExercisesEnvironment })
+             environment: { $0.exercisesGroupsWithExercisesEnvironment }),
+    pullback(workoutsWithDetailsConnectReducer(workoutsWithDetailsReducer),
+             value: \AppState.workoutsWithDetailsState,
+             action: /AppAction.workoutsWithDetailsView,
+             environment: { $0.workoutsWithDetailsEnvironment })
 )
 
 struct ContentView: View {
@@ -70,12 +78,19 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            Workouts(store: self.store.scope(
+                value: { $0.workoutsWithDetailsState },
+                action: { .workoutsWithDetailsView($0) })
+            ).tabItem {
+                Image(systemName: "1.square.fill")
+                Text("First")
+            }
             ExerciseGroups(store: self.store.scope(
                 value: { $0.exercisesGroupsWithExercisesState },
                 action: { .exercisesGroupsWithExercisesView($0) })
             ).tabItem {
                 Image(systemName: "2.square.fill")
-                Text("First")
+                Text("Second")
             }
             NavigationView {
                 ScrollView() {
@@ -115,8 +130,8 @@ struct ContentView: View {
                 .padding(.horizontal, .gridSteps(4))
             }
             .tabItem {
-                Image(systemName: "1.square.fill")
-                Text("Second")
+                Image(systemName: "3.square.fill")
+                Text("Third")
             }
         }
     }
