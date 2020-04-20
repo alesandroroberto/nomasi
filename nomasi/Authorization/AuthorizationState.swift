@@ -57,20 +57,10 @@ struct AuthorizationState: Equatable {
 }
 
 enum AuthorizationAction: Equatable {
-    case success
+    case success(message: String)
     case error(AuthorizationError)
-    case emailChanged(String)
-    case passwordChanged(String)
-    case confirmPasswordChanged(String)
     case signInWithAppleTapped
-    case authorizationTapped
-    case registrarionTapped
-    case resetTapped(String)
-    case resetConfirm
-    case resetPasswordSuccess(String)
     case alertDidHide
-    case present(AuthorizationState.PresentedScreen)
-    case closed(AuthorizationState.PresentedScreen)
 }
 
 func authorizationReducer(
@@ -79,10 +69,10 @@ func authorizationReducer(
     environment: AuthorizationEnvironment
 ) -> [Effect<AuthorizationAction>] {
     switch action {
-    case .success:
+    case .success(let message):
         state.loading = false
-        let presented = state.presented
-        return [.sync(work: { .closed(presented) })]
+        state.alert = .init(style: .info(message))
+        return []
     case .error(let error):
         state.loading = false
         switch error {
@@ -93,49 +83,8 @@ func authorizationReducer(
     case .signInWithAppleTapped:
         state.loading = true
         return [environment.appleSignIn()]
-    case .authorizationTapped:
-        guard let email = state.email, let password = state.password else { return [environment.emptyCredentials()] }
-        state.loading = true
-        return [environment.authorization(email, password)]
-    case .registrarionTapped:
-        guard let email = state.email, let password = state.password, state.confirmPassword != nil
-            else { return [environment.emptyRegisterCredentials()] }
-        guard state.confirmPassword == password
-            else { return [environment.passwordConfirmationError()] }
-        state.loading = true
-        return [environment.registration(email, password)]
-    case .resetConfirm:
-        state.alert = nil
-        guard let email = state.email else { return [environment.emptyEmail()] }
-        state.loading = true
-        return [environment.resetPassword(email)]
-    case .resetTapped(let message):
-        state.alert = .init(style: .action(message, .resetConfirm))
-        return []
-    case .resetPasswordSuccess(let message):
-        state.loading = false
-        state.alert = .init(style: .dismissAction(message, .present(.authorization)))
-        return []
-    case .emailChanged(let value):
-        state.email = value.isEmpty ? nil : value
-        return []
-    case .passwordChanged(let value):
-        state.password = value.isEmpty ? nil : value
-        return []
-    case .confirmPasswordChanged(let value):
-        state.confirmPassword = value.isEmpty ? nil : value
-        return []
     case .alertDidHide:
         state.alert = nil
-        return []
-    case .present(let screen):
-        state.alert = nil
-        state.presented = screen
-        return []
-    case .closed(let screen):
-        if screen == state.presented {
-            state.presented = .none
-        }
         return []
     }
 }

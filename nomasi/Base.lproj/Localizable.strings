@@ -25,3 +25,5 @@
 "Authorization.Registration.Title" = "Registration";
 "Authorization.Registration.Button.Title" = "Register";
 "Authorization.Registration.AuthButton.Title" = "Go to authorization";
+
+"Authorization.AppleSignIn.Success.message" = "Auth success";

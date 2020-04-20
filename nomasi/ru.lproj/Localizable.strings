@@ -25,3 +25,5 @@
 "Authorization.Registration.Title" = "Регистрация";
 "Authorization.Registration.Button.Title" = "Зарегестрироваться";
 "Authorization.Registration.AuthButton.Title" = "Уже есть акканут";
+
+"Authorization.AppleSignIn.Success.message" = "Авторизация успешна";

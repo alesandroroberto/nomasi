@@ -93,41 +93,12 @@ struct ContentView: View {
                 Text("Second")
             }
             NavigationView {
-                ScrollView() {
-                    Text(self.viewStore.value.authorizationState.presented == .none ? "false" : "true")
-                    NOWideTextButton("Show auth") { self.viewStore.send(.authorizationView(.present(.authorization))) }
-                        .disabled(self.viewStore.value.authorizationState.presented != .none)
-                    Spacer()
-                    NOWideTextButton("Register") { self.viewStore.send(.authorizationView(.present(.registration))) }
-                        .disabled(self.viewStore.value.authorizationState.presented != .none)
-                    Spacer()
-                    NavigationLink(destination: Authorization(
-                        store: self.store.scope(
-                            value: { $0.authorizationView },
-                            action: { .authorizationView($0) }
-                        )
-                    ), isActive: .constant(self.viewStore.value.authorizationState.presented == .authorization)) {
-                        EmptyView()
-                    }
-                    NavigationLink(destination: ForgotPassword(
-                        store: self.store.scope(
-                            value: { $0.authorizationView },
-                            action: { .authorizationView($0) }
-                        )
-                    ), isActive: .constant(self.viewStore.value.authorizationState.presented == .forgotPassword)) {
-                        EmptyView()
-                    }
-                    NavigationLink(destination: Registration(
-                        store: self.store.scope(
-                            value: { $0.authorizationView },
-                            action: { .authorizationView($0) }
-                        )
-                    ), isActive: .constant(self.viewStore.value.authorizationState.presented == .registration)) {
-                        EmptyView()
-                    }
-                }
-                .navigationBarTitle("Nomasi")
-                .padding(.horizontal, .gridSteps(4))
+                Authorization(
+                    store: self.store.scope(
+                        value: { $0.authorizationView },
+                        action: { .authorizationView($0) }
+                    )
+                )
             }
             .tabItem {
                 Image(systemName: "3.square.fill")

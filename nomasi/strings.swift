@@ -13,6 +13,12 @@ import Foundation
 internal enum L10n {
 
   internal enum Authorization {
+    internal enum AppleSignIn {
+      internal enum Success {
+        /// Auth success
+        internal static let message = L10n.tr("Localizable", "Authorization.AppleSignIn.Success.message")
+      }
+    }
     internal enum Auth {
       /// Authorization
       internal static let title = L10n.tr("Localizable", "Authorization.Auth.Title")

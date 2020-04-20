@@ -56,8 +56,6 @@
 		CA7109562445FCE400274AD5 /* ExercisesEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109552445FCE400274AD5 /* ExercisesEnvironment.swift */; };
 		CA7109582445FDAD00274AD5 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109572445FDAD00274AD5 /* Exercises.swift */; };
 		CA71095B2445FFA200274AD5 /* ExercisesEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71095A2445FFA200274AD5 /* ExercisesEffects.swift */; };
-		CA71095E2447273200274AD5 /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71095D2447273200274AD5 /* NavigationState.swift */; };
-		CA71096024475C1300274AD5 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71095F24475C1300274AD5 /* NavigationCoordinator.swift */; };
 		CA71096324475F5300274AD5 /* ExerciseDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA71096224475F5300274AD5 /* ExerciseDetailsState.swift */; };
 		CA7109652447632600274AD5 /* ExerciseDetailsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109642447632600274AD5 /* ExerciseDetailsEnvironment.swift */; };
 		CA7109672447643100274AD5 /* ExerciseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7109662447643100274AD5 /* ExerciseDetails.swift */; };
@@ -73,8 +71,6 @@
 		CAC1A2A923C9F48E00AF8392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC1A2A723C9F48E00AF8392 /* LaunchScreen.storyboard */; };
 		CAC1A2B423C9F48F00AF8392 /* nomasiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1A2B323C9F48F00AF8392 /* nomasiTests.swift */; };
 		CACA84E823DC86AF004EB1E7 /* AuthorizationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA84E723DC86AF004EB1E7 /* AuthorizationState.swift */; };
-		CACA84EA23DC91A2004EB1E7 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA84E923DC91A2004EB1E7 /* ForgotPassword.swift */; };
-		CACA84EC23DDB836004EB1E7 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA84EB23DDB836004EB1E7 /* Registration.swift */; };
 		CACA84FB23DDDA34004EB1E7 /* DesignKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACA84F223DDDA34004EB1E7 /* DesignKit.framework */; };
 		CACA850223DDDA34004EB1E7 /* DesignKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA850123DDDA34004EB1E7 /* DesignKitTests.swift */; };
 		CACA850423DDDA34004EB1E7 /* DesignKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CACA84F423DDDA34004EB1E7 /* DesignKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -303,8 +299,6 @@
 		CA7109552445FCE400274AD5 /* ExercisesEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesEnvironment.swift; sourceTree = "<group>"; };
 		CA7109572445FDAD00274AD5 /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 		CA71095A2445FFA200274AD5 /* ExercisesEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesEffects.swift; sourceTree = "<group>"; };
-		CA71095D2447273200274AD5 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
-		CA71095F24475C1300274AD5 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		CA71096224475F5300274AD5 /* ExerciseDetailsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsState.swift; sourceTree = "<group>"; };
 		CA7109642447632600274AD5 /* ExerciseDetailsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsEnvironment.swift; sourceTree = "<group>"; };
 		CA7109662447643100274AD5 /* ExerciseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetails.swift; sourceTree = "<group>"; };
@@ -321,8 +315,6 @@
 		CAC1A2B323C9F48F00AF8392 /* nomasiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nomasiTests.swift; sourceTree = "<group>"; };
 		CAC1A2B523C9F48F00AF8392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CACA84E723DC86AF004EB1E7 /* AuthorizationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationState.swift; sourceTree = "<group>"; };
-		CACA84E923DC91A2004EB1E7 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
-		CACA84EB23DDB836004EB1E7 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		CACA84F223DDDA34004EB1E7 /* DesignKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesignKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CACA84F423DDDA34004EB1E7 /* DesignKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignKit.h; sourceTree = "<group>"; };
 		CACA84F523DDDA34004EB1E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -556,15 +548,6 @@
 			path = Exercises;
 			sourceTree = "<group>";
 		};
-		CA71095C2447271000274AD5 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				CA71095D2447273200274AD5 /* NavigationState.swift */,
-				CA71095F24475C1300274AD5 /* NavigationCoordinator.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
 		CA71096124475F3400274AD5 /* ExerciseDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,7 +601,6 @@
 				CA71094624447F5100274AD5 /* ExerciseGroups */,
 				CA550834244C86520036259D /* Workouts */,
 				CAD0F81923CB624F00782DE5 /* Authorization */,
-				CA71095C2447271000274AD5 /* Navigation */,
 				CAC1A29C23C9F48A00AF8392 /* AppDelegate.swift */,
 				CAC1A29E23C9F48A00AF8392 /* SceneDelegate.swift */,
 				CAC1A2A023C9F48A00AF8392 /* ContentView.swift */,
@@ -701,8 +683,6 @@
 				CACA84E723DC86AF004EB1E7 /* AuthorizationState.swift */,
 				CA55511723CB64730068D9BE /* AuthorizationEffects.swift */,
 				CAD0F80F23CA027E00782DE5 /* Authorization.swift */,
-				CACA84E923DC91A2004EB1E7 /* ForgotPassword.swift */,
-				CACA84EB23DDB836004EB1E7 /* Registration.swift */,
 				CA367989243F185500906205 /* AppleSginInRequest.swift */,
 			);
 			path = Authorization;
@@ -1317,19 +1297,15 @@
 				CAC1A29D23C9F48A00AF8392 /* AppDelegate.swift in Sources */,
 				CAC1A29F23C9F48A00AF8392 /* SceneDelegate.swift in Sources */,
 				CAC1A2A123C9F48A00AF8392 /* ContentView.swift in Sources */,
-				CA71095E2447273200274AD5 /* NavigationState.swift in Sources */,
 				CAD0F81823CA2A4A00782DE5 /* Authorization.swift in Sources */,
 				CA7109512445E44800274AD5 /* FirebaseProvider.swift in Sources */,
 				CA71095B2445FFA200274AD5 /* ExercisesEffects.swift in Sources */,
 				CACA84E823DC86AF004EB1E7 /* AuthorizationState.swift in Sources */,
 				CA550845244CAA0F0036259D /* WorkoutEffects.swift in Sources */,
 				CA71094824447F7D00274AD5 /* ExerciseGroupsEffects.swift in Sources */,
-				CA71096024475C1300274AD5 /* NavigationCoordinator.swift in Sources */,
 				CA55512B23D49D7E0068D9BE /* strings.swift in Sources */,
 				CA55511823CB64730068D9BE /* AuthorizationEffects.swift in Sources */,
 				CA55512D23D49EF30068D9BE /* AuthorizationEnvironment.swift in Sources */,
-				CACA84EC23DDB836004EB1E7 /* Registration.swift in Sources */,
-				CACA84EA23DC91A2004EB1E7 /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
