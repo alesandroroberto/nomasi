@@ -86,6 +86,23 @@ internal enum L10n {
       }
     }
   }
+
+  internal enum ContentView {
+    internal enum Tabs {
+      internal enum Exercises {
+        /// Exercises
+        internal static let title = L10n.tr("Localizable", "ContentView.Tabs.Exercises.title")
+      }
+      internal enum Profile {
+        /// Profile
+        internal static let title = L10n.tr("Localizable", "ContentView.Tabs.Profile.title")
+      }
+      internal enum Workouts {
+        /// Workout
+        internal static let title = L10n.tr("Localizable", "ContentView.Tabs.Workouts.title")
+      }
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

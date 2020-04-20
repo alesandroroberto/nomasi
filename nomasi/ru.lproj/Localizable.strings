@@ -27,3 +27,7 @@
 "Authorization.Registration.AuthButton.Title" = "Уже есть акканут";
 
 "Authorization.AppleSignIn.Success.message" = "Авторизация успешна";
+
+"ContentView.Tabs.Workouts.title" = "Тренировки";
+"ContentView.Tabs.Exercises.title" = "Упражнения";
+"ContentView.Tabs.Profile.title" = "Профиль";

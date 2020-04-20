@@ -33,7 +33,7 @@ public struct ExerciseGroups: View {
             }
             .onAppear(perform: { self.viewStore.send(.viewDidLoad) })
             .onDisappear(perform: { self.viewStore.send(.disappeared) })
-            .navigationBarTitle("Группы")
+            .navigationBarTitle(L10n.ExerciseGroups.title)
         }
     }
     

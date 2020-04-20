@@ -83,14 +83,14 @@ struct ContentView: View {
                 action: { .workoutsWithDetailsView($0) })
             ).tabItem {
                 Image(systemName: "1.square.fill")
-                Text("First")
+                Text(L10n.ContentView.Tabs.Workouts.title)
             }
             ExerciseGroups(store: self.store.scope(
                 value: { $0.exercisesGroupsWithExercisesState },
                 action: { .exercisesGroupsWithExercisesView($0) })
             ).tabItem {
                 Image(systemName: "2.square.fill")
-                Text("Second")
+                Text(L10n.ContentView.Tabs.Exercises.title)
             }
             NavigationView {
                 Authorization(
@@ -102,7 +102,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "3.square.fill")
-                Text("Third")
+                Text(L10n.ContentView.Tabs.Profile.title)
             }
         }
     }

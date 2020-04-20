@@ -27,3 +27,7 @@
 "Authorization.Registration.AuthButton.Title" = "Go to authorization";
 
 "Authorization.AppleSignIn.Success.message" = "Auth success";
+
+"ContentView.Tabs.Workouts.title" = "Workout";
+"ContentView.Tabs.Exercises.title" = "Exercises";
+"ContentView.Tabs.Profile.title" = "Profile";
