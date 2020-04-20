@@ -32,7 +32,7 @@ public struct Workouts: View {
                 }
             }
             .onAppear(perform: { self.viewStore.send(.loadWorkouts) })
-            .navigationBarTitle("Тренировки")
+            .navigationBarTitle(L10n.Workouts.title)
         }
     }
     

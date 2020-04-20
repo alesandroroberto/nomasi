@@ -28,15 +28,19 @@ public struct WorkoutScene: View {
                                 .padding(.horizontal, .gridSteps(2))
                                 .padding(.top, .gridStep)
                             HStack {
-                                Text("\(String(format: "%.0f", exercise.weight)) кг")
+                                Text("\(String(format: "%.0f", exercise.weight)) \(L10n.WorkoutScene.weightUnit)")
                                 Text("|")
-                                Text("\(exercise.repeats) раз")
+                                Text("\(exercise.repeats) \(L10n.WorkoutScene.repeats)")
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal, .gridSteps(2))
                             .padding(.bottom, .gridStep)
                         }
-                        Button("записать", action: { self.viewStore.send(.logExerciseResult(id: exercise.id)) }).padding(.horizontal, .gridSteps(2))
+                        Button(
+                            L10n.WorkoutScene.log,
+                            action: { self.viewStore.send(.logExerciseResult(id: exercise.id)) }
+                        )
+                            .padding(.horizontal, .gridSteps(2))
                     }
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(.gridSteps(4))
