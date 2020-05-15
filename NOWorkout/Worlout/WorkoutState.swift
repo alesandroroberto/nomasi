@@ -22,6 +22,11 @@ public struct WorkoutExercise: Equatable, Decodable {
     }
 }
 
+public struct WorkoutExerciseUserDefined: Equatable {
+    public var repeats: Int
+    public var weight: Double
+}
+
 public enum WorkoutStep {
     case idle
     case loading
@@ -31,18 +36,21 @@ public enum WorkoutStep {
 public struct WorkoutState: Equatable {
     public var workout: Workout?
     public var exercises: [WorkoutExercise]
+    public var userDefined: [String: WorkoutExerciseUserDefined]
     public var step: WorkoutStep
 
     public init(workout: Workout?,
                 exercises: [WorkoutExercise],
+                userDefined: [String: WorkoutExerciseUserDefined],
                 step: WorkoutStep) {
         self.exercises = exercises
+        self.userDefined = userDefined
         self.step = step
     }
 }
 
 extension WorkoutState {
-    public static let initial: WorkoutState = .init(workout: nil, exercises: [], step: .idle)
+    public static let initial: WorkoutState = .init(workout: nil, exercises: [], userDefined: [:], step: .idle)
 }
 
 public enum WorkoutAction {
@@ -50,7 +58,9 @@ public enum WorkoutAction {
     case exercisesLoaded([WorkoutExercise])
     case selectWorkout(id: String)
     case logExerciseResult(id: String)
-    case exerciseResultLogged
+    case exerciseResultLogged(id: String)
+    case increaseUserDefined(id: String)
+    case decreaseUserDefined(id: String)
 }
 
 public func workoutReducer(
@@ -72,10 +82,35 @@ public func workoutReducer(
         return []
     case .logExerciseResult(let id):
         guard let selected = state.exercises.first(where: { $0.id == id }) else { return [] }
-        state.step = .loading
-        return [environment.logExerciseResult(selected)]
-    case .exerciseResultLogged:
+        if let userDefined = state.userDefined[selected.id] {
+            state.step = .loading
+            return [environment.logExerciseResult((selected.id, userDefined.repeats, userDefined.weight))]
+        } else {
+            state.userDefined[selected.id] = .init(repeats: selected.repeats, weight: selected.weight)
+            return []
+        }
+    case .exerciseResultLogged(let id):
+        if let index = state.exercises.lastIndex(where: { $0.id == id }), let repeats = state.userDefined[id]?.repeats {
+            state.exercises[index].repeats = repeats
+        }
+        state.userDefined.removeValue(forKey: id)
         state.step = .loaded
         return []
+    case .increaseUserDefined(id: let id):
+        guard let repeats = state.userDefined[id]?.repeats else { return [] }
+        state.userDefined[id]?.repeats = repeats + 1
+        return []
+    case .decreaseUserDefined(id: let id):
+        guard let repeats = state.userDefined[id]?.repeats, repeats > 0 else { return [] }
+        state.userDefined[id]?.repeats = repeats - 1
+        return []
+    }
+}
+
+extension WorkoutState {
+    func userDefinedRepeats(id: String) -> Int {
+        guard let repeats = self.userDefined[id]?.repeats
+            else { return self.exercises.first(where: { $0.id == id }).map { $0.repeats } ?? 0 }
+        return repeats
     }
 }

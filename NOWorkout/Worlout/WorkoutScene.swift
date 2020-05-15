@@ -21,26 +21,39 @@ public struct WorkoutScene: View {
         ScrollView {
             ForEach(self.viewStore.value.exercises, id: \.id) { exercise in
                 VStack {
-                    HStack {
-                        VStack {
-                            Text(exercise.name)
+                    VStack {
+                        HStack {
+                            VStack {
+                                Text(exercise.name)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, .gridSteps(4))
+                                    .padding(.top, .gridStep)
+                                HStack {
+                                    Text("\(String(format: "%.0f", exercise.weight)) \(L10n.WorkoutScene.weightUnit)")
+                                    Text("|")
+                                    Text("\(self.viewStore.value.userDefinedRepeats(id: exercise.id)) \(L10n.WorkoutScene.repeats)")
+                                }
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, .gridSteps(2))
-                                .padding(.top, .gridStep)
-                            HStack {
-                                Text("\(String(format: "%.0f", exercise.weight)) \(L10n.WorkoutScene.weightUnit)")
-                                Text("|")
-                                Text("\(exercise.repeats) \(L10n.WorkoutScene.repeats)")
+                                .padding(.horizontal, .gridSteps(4))
+                                .padding(.bottom, .gridStep)
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, .gridSteps(2))
-                            .padding(.bottom, .gridStep)
+                            Button(
+                                L10n.WorkoutScene.log,
+                                action: { self.viewStore.send(.logExerciseResult(id: exercise.id)) }
+                            )
+                                .padding(.horizontal, .gridSteps(4))
                         }
-                        Button(
-                            L10n.WorkoutScene.log,
-                            action: { self.viewStore.send(.logExerciseResult(id: exercise.id)) }
-                        )
-                            .padding(.horizontal, .gridSteps(2))
+                        if self.viewStore.value.userDefined[exercise.id] != nil {
+                            HStack {
+                                Button("+",
+                                       action: { self.viewStore.send(.increaseUserDefined(id: exercise.id)) })
+                                    .padding(.gridSteps(2))
+                                Button("-",
+                                       action: { self.viewStore.send(.decreaseUserDefined(id: exercise.id)) })
+                                    .padding(.gridSteps(2))
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
                     }
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(.gridSteps(4))

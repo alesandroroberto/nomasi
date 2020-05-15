@@ -86,6 +86,10 @@ struct FirebaseProvider {
         }
     }
     
+    func setUserDataWithTimestamp(path: String, data: [String: Any]) -> Future<Void,NSError> {
+        return (FirebaseProvider.addTimestampToUserData >>> setUserData) <| (path, data)
+    }
+    
     func addUserData(path: String, data: [String: Any]) -> Future<Void,NSError> {
         return Future<Void, NSError>() { callback in
             guard let uid = self.auth.currentUser?.uid else { callback(.failure(NSError())); return }
@@ -97,6 +101,10 @@ struct FirebaseProvider {
                 }
             }
         }
+    }
+    
+    func addUserDataWithTimestamp(path: String, data: [String: Any]) -> Future<Void,NSError> {
+        return (FirebaseProvider.addTimestampToUserData >>> addUserData) <| (path, data)
     }
 }
 
@@ -117,6 +125,14 @@ extension FirebaseProvider {
                 else { return list }
             return list.merging(langLocalizable, uniquingKeysWith: { arg1, _ in arg1 })
         }
+    }
+    private static func addTimestampToUserData(path: String, data: [String: Any]) -> (String, [String: Any]) {
+        return (path, ["timestamp": FieldValue.serverTimestamp()]
+            .merging(
+                data,
+                uniquingKeysWith: { serverTimestamp, _ in serverTimestamp }
+            )
+        )
     }
     
     var liftLocalization: ([String: Any]) -> [String: Any] {

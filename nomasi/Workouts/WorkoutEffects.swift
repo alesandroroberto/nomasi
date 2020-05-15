@@ -34,18 +34,18 @@ enum WorkoutEffects {
     }
     
     static func logExerciseResult(setUserData: @escaping (String, [String: Any]) -> Future<Void,NSError>)
-        -> (WorkoutExercise) -> Effect<WorkoutAction> {
-        return { exercise in
+        -> (WorkoutEnvironment.WorkoutUser) -> Effect<WorkoutAction> {
+        return { userDefinedWorkoutExercise in
             return setUserData(
                 "/workouts/",
                 [
-                    "id": exercise.id,
-                    "repeats": exercise.repeats,
-                    "weight": exercise.weight
+                    "workoutExerciseId": userDefinedWorkoutExercise.0,
+                    "repeats": userDefinedWorkoutExercise.1,
+                    "weight": userDefinedWorkoutExercise.2
                 ]
             )
-                .map { WorkoutAction.exerciseResultLogged }
-                .catch { _ in Just(.exerciseResultLogged) }
+                .map { WorkoutAction.exerciseResultLogged(id: userDefinedWorkoutExercise.0) }
+                .catch { _ in Just(.exerciseResultLogged(id: userDefinedWorkoutExercise.0)) }
                 .eraseToAnyPublisher()
                 .receive(on: DispatchQueue.main)
                 .eraseToEffect()
@@ -60,7 +60,7 @@ extension WorkoutEnvironment {
                 workoutsWithLink: provider.documents,
                 exercise: provider.document
             ),
-            logExerciseResult: WorkoutEffects.logExerciseResult(setUserData: provider.addUserData)
+            logExerciseResult: WorkoutEffects.logExerciseResult(setUserData: provider.addUserDataWithTimestamp)
         )
     }
 }

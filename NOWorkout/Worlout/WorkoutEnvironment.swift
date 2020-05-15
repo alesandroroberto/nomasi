@@ -12,16 +12,22 @@ import ComposableArchitecture
 public struct WorkoutEnvironment {
     public typealias WorkoutId = String
     public var loadExercises: (WorkoutId) -> Effect<WorkoutAction>
-    public var logExerciseResult: (WorkoutExercise) -> Effect<WorkoutAction>
+    public typealias WorkoutExerciseId = String
+    public typealias WorkoutRepeats = Int
+    public typealias WorkoutWeight = Double
+    public typealias WorkoutUser = (WorkoutExerciseId, WorkoutRepeats, WorkoutWeight)
+    public var logExerciseResult: (WorkoutUser) -> Effect<WorkoutAction>
     
     public init(loadExercises: @escaping (WorkoutId) -> Effect<WorkoutAction>,
-                logExerciseResult: @escaping (WorkoutExercise) -> Effect<WorkoutAction>) {
+                logExerciseResult: @escaping (WorkoutUser) -> Effect<WorkoutAction>) {
         self.loadExercises = loadExercises
         self.logExerciseResult = logExerciseResult
     }
 }
 
 extension WorkoutEnvironment {
-    public static let mock = WorkoutEnvironment(loadExercises: { _ in .sync(work: { .exercisesLoaded([]) }) },
-                                                logExerciseResult: { _ in .sync(work: { .exerciseResultLogged }) })
+    public static let mock = WorkoutEnvironment(
+        loadExercises: { _ in .sync(work: { .exercisesLoaded([]) }) },
+        logExerciseResult: { _ in .sync(work: { .exerciseResultLogged(id: "") }) }
+    )
 }
